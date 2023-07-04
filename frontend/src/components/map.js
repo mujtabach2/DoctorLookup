@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import uri from "./uri";
 export default function Map() {
   const [map, setMap] = useState(null);
 
@@ -18,10 +18,10 @@ export default function Map() {
 
     // Load the Google Maps API script
     const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDZRcNlZiVZWcu0yyMsRNnOUHmL3X9SPt0`;
+    script.src = uri;
     script.async = true;
     script.defer = true;
-    script.onload = () => {
+    script.onload = () => {  
       initMap();
     };
 

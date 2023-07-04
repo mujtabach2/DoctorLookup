@@ -1,4 +1,3 @@
-
 import './App.css';
 import {Routes, Route, Link} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -28,59 +27,35 @@ function App()
 
     return(
         <div>
-           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/doctors">Find Your Doctor</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <Link to={"/doctors"} className="nav-link">Doctors</Link>
-            </li>
-            <li class="nav-item">
-                <Link to={"/calendar"} className="nav-link">Calendar</Link>
-            </li>
-            <li class="nav-item">
-                { user ? (
-                <a onClick={logout} className="nav-link" style={{cursor:'pointer'}}>
-                    Logout {user.name}
-                </a>
-                ) : (
-                <Link to={"/login"} className="nav-link login-link">
-                    Login
-                </Link>
-                )}
-            </li>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="/doctors">Find Your Doctor</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <Link to={"/doctors"} className="nav-link">Doctors</Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link to={"/calendar"} className="nav-link">Calendar</Link>
+                        </li>
+                        <li class="nav-item">
+                            { user ? (
+                            <a onClick={logout} className="nav-link" style={{cursor:'pointer'}}>
+                                Logout {user.name}
+                            </a>
+                            ) : (
+                            <Link to={"/login"} className="nav-link login-link">
+                                Login
+                            </Link>
+                            )}
+                        </li>
 
-        </ul>
-    </div>
-</nav>
-
-            {/* <div className="container mt-3">
-            <Routes>
-                <Route exact path={["/", "/doctors"]} component={doctorList} />
-                <Route 
-                    path="/doctors/:id/review"
-                    render={(props) => (
-                    <AddReview {...props} user={user} />
-                    )}
-                />
-                <Route 
-                    path="/doctors/:id"
-                    render={(props) => (
-                    <Doctor {...props} user={user} />
-                    )}
-                />
-                <Route 
-                    path="/login"
-                    render={(props) => (
-                    <Login {...props} login={login} />
-                    )}
-                />
-            </Routes>
-        </div> */}
+                    </ul>
+                </div>
+            </nav>
             <FormBar
                 cities={canadaCities}
             />
