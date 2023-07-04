@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-.uri.js
+.uri.js        
 # testing
 /coverage
 
