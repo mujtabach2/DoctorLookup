@@ -3,6 +3,8 @@ the map controller is put on hold so is the doctor.js in serverices and the doct
 for now the files above are active, but are unnesecary what needs to be done is the frontend just needs the addrress from backend thats it, map in 
 backend is redundant
 
+routes created need to work on front end fetch
+
 
 below is the steps to do the marking and shit but needs to be adjusted for needs 
 // Step 1: Get client's address input
@@ -80,4 +82,15 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   var a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-  var c = 2 * Math.atan2(Math.sqrt
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var distance = R * c; // Distance in kilometers
+  return distance * 0.621371; // Convert to miles
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI / 180);
+}
+
+
+
+
