@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import uri from "./uri";
+
 export default function Map() {
   const [map, setMap] = useState(null);
 
@@ -38,7 +39,10 @@ export default function Map() {
       // Function to handle search and create markers
       async function handleSearch() {
         try {
-          const response = await axios.get("/api/search"); // Replace with your server endpoint for search
+          const address = "Your desired address"; // Replace with the user-provided address
+          const response = await axios.get("/api/search", {
+            params: { address } // Pass the address as a query parameter
+          });
           const searchResults = response.data;
 
           // Loop through the search results and create markers
@@ -60,7 +64,3 @@ export default function Map() {
 
   return <div id="map" style={{ width: "100%", height: "400px" }}></div>;
 }
-
-
-
- 

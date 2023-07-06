@@ -8,11 +8,15 @@ import AddReview from './components/add-review';
 import Doctor from './components/doctors';
 import doctorList from './components/doctor-list';
 import Login from './components/login';
+import DoctorDataService from "./services/doctor.js";
 
 
-import { canadaCities } from "./scrape/data"
+
+import { canadaCities, specialties} from "./scrape/data"
 function App()
 {
+    const [searchResults, setSearchResults] = React.useState([]);
+    const doctorDataService = new DoctorDataService();
     const [user, setUser] = React.useState(null);
 
     async function login(user = null)
@@ -24,6 +28,16 @@ function App()
     {
         setUser(null);
     }
+
+    async function handleSearch(city, specialty, location) {
+        try {
+          const response = await doctorDataService.find(location, 'location', city, specialty);
+          setSearchResults(response.data);
+        } catch (error) {
+          console.log("Error performing search:", error);
+        }
+      }
+      
 
     return(
         <div>
@@ -57,9 +71,8 @@ function App()
                 </div>
             </nav>
             <FormBar
-                cities={canadaCities}
             />
-            <Map />
+            {/* //<Map /> */}
         </div>
     )
 }

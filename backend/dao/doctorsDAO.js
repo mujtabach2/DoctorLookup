@@ -22,8 +22,8 @@ export default class DoctorsDAO {
       if ("city" in filters) {
         query = { "city": { $eq: filters["city"] } };
       }
-       if ("type" in filters) {
-        query = { "type": { $eq: filters["type"] } };
+       if ("specialty" in filters) {
+        query = { "specialty": { $eq: filters["specialty"] } };
       }
     }
 
@@ -82,12 +82,12 @@ export default class DoctorsDAO {
     }
   }
 
-  static async getDoctorByType(type) {
+  static async getDoctorByType(specialty) {
     try{
       const pipeline = [
         {
           $match: {
-            type: type,
+            specialty: specialty,
           },
         },
       ];
@@ -108,11 +108,30 @@ export default class DoctorsDAO {
           },
         ];
         return await doctors.aggregate(pipeline).next();
-      } catch (e) {
-        console.error(`Something went wrong in getDoctorByName: ${e}`);
-        throw e;
-          }
-        
+        } catch (e) {
+          console.error(`Something went wrong in getDoctorByName: ${e}`);
+          throw e;
+            }
+          
         }
+      static async getDoctorByAddress(address) {
+        try{
+          const pipeline = [
+            {
+              $match: {
+                address: address,
+              },
+            },
+          ];
+          return await doctors.aggregate(pipeline).next();
+          } catch (e) {
+            console.error(`Something went wrong in getDoctorByAddress: ${e}`);
+            throw e;
+            
+          }
+        }
+    
     }
+
+   
 

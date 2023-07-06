@@ -8,8 +8,8 @@ export default class DoctorsController {
         let filters = {}
         if (req.query.city) {
             filters.city = req.query.city
-        }else if(req.query.type){
-            filters.type = req.query.type
+        }else if(req.query.specialty){
+            filters.specialty = req.query.specialty
         }else if(req.query.name){
             filters.name = req.query.name
         }
@@ -60,7 +60,7 @@ export default class DoctorsController {
     static async apiGetDoctorTypes(req, res, next) {
         try{
             let types = await DoctorsDAO.getDoctorByType()
-            res.json(types)
+            res.json(specialty)
         } catch(e){
             console.log(`api ${e}`)
             res.status(500).json({error: e})
@@ -72,6 +72,16 @@ export default class DoctorsController {
             let name = await DoctorsDAO.getDoctorByName()
             res.json(name)
         }catch(e){
+            console.log(`api ${e}`)
+            res.status(500).json({error: e})
+        }
+    }
+
+    static async apiGetDoctorByAddress(req, res, next) {
+        try{
+            let address = await DoctorsDAO.getDoctorByAddress()
+            res.json(address)
+        } catch(e){
             console.log(`api ${e}`)
             res.status(500).json({error: e})
         }
