@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-/components/uri.js        
+frontend/src/components/uri.js
 # testing
 /coverage
 
