@@ -1,6 +1,7 @@
 the user rating is done but need to push the user rating to the mongodb store it in reviews i guess but at the same time have to set up 
 user to have rating ability in schema 
 
+ADD USER RATING DONT CHNAGE IT 
 style a bit more nav doctor list login and logout , add animations , 
 put warning if review/rating given if not signed in.
 
