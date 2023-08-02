@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 
-async function pushToMongo()
+async function pushToMongo(doctors)
 {
-  const uri = 'mongodb+srv://mujtabawaqas:Doctors@cluster0.gtm2zmr.mongodb.net/DoctorSite?retryWrites=true&w=majority';
+  const uri = 'mongodb+srv://mujtabawaqas:bbFp4gPHC.pKQvH@cluster0.gtm2zmr.mongodb.net/DoctorSite?retryWrites=true&w=majority';
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB Atlas successfully!');
@@ -47,10 +47,10 @@ async function pushToMongo()
     console.error('Error connecting to MongoDB Atlas:', error);
   });
   // at the end to delete duplicate items we are going to do this 
-  const filter = { itemId: data.itemId }; // Specify the unique identifier field
+//   const filter = { itemId: data.itemId }; // Specify the unique identifier field
 
-// Delete all documents with the same itemId
-  await collection.deleteMany(filter);
+// // Delete all documents with the same itemId
+//   await collection.deleteMany(filter);
 
 } 
 module.exports = pushToMongo;

@@ -2,10 +2,21 @@ import http from "../http-common";
 
 
 export default class DoctorDataService {
-    getAll() {
-        return http.get(`/doc`);
+    getDoctors(params) {
+        return http.get(`/doc`, { params });
     }
-
+    async getDoctorReviews(doctorId) {
+      try {
+        // Make an API call to fetch the reviews for the specified doctor from the backend
+        const response = await http.get(`/review/${doctorId}`);
+        console.log('response:', response);
+        return response // Assuming the API response contains the 'reviews' array
+      } catch (error) {
+        console.error('Error fetching reviews for doctor:', error);
+        return []; // Return an empty array in case of an error or if no reviews are found
+      }
+    }
+  
     get(id) {
         return http.get(`/id/${id}`);
     }
@@ -21,19 +32,45 @@ export default class DoctorDataService {
     find(query, by = "name", page = 0) {
         return http.get(`?${by}=${query}&page=${page}`);
     }
-
-    createReview(data) {
-        return http.post("/review", data);
+    addRatingToUser(userId, doctorId, ratingValue) {
+      const data = {
+        userId: userId,
+        doctorId: doctorId,
+        ratingValue: ratingValue,
+      };
+  
+      return http.post("/user/addRating", data)
+        .then((response) => response.data)
+        .catch((error) => {
+          throw new Error('Error adding rating to user:', error);
+        });
     }
 
-
-    updateReview(data) {
-        return http.post("/review", data);
+    createReview(doctorId, reviewData) {
+      const data = {
+        doctorId: doctorId,
+        review: reviewData.review,
+        user: reviewData.user,
+        date: reviewData.date,
+      };
+    
+      return http.post('/review', data)
+        .then((response) => response.data)
+        .catch((error) => {
+          throw new Error('Error creating review:', error);
+        });
     }
-
-    deleteReview(id, userId) {
-        return http.delete(`/review?id=${id}`, { data: { user_id: userId } });
-    }
+    
+      
+      
+      updateReview(data) {
+        return http.put(`/review/${data.reviewId}/${data.userId}`, data);
+      }
+      
+      deleteReview(reviewId, userId) {
+        return http.delete(`/review/${reviewId}/${userId}`);
+      }
+      
 
     getCities() {
         return http.get("/cities");
@@ -41,6 +78,23 @@ export default class DoctorDataService {
     getTypes() {
         return http.get("/types");
     }
+
+    async updateUserRating(doctorId, rating) {
+      try {
+        const response = await fetch(`/rating/${doctorId}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ rating }),
+        });
+        return await response.json();
+      } catch (error) {
+        console.error('Error updating user rating:', error);
+        throw error;
+      }
+    }
+
 
     // async findByLocation(location) {
     //     try {

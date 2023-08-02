@@ -1,70 +1,51 @@
-let doctors;
-
+let doctors
 export default class DoctorsDAO {
-  static async injectDB(conn) {
-    if (doctors) {
-      return;
-    }
+
+  static async injectDB(client) {
     try {
-      doctors = await conn.db(process.env.DOCTORS_NS).collection("doctors");
+      if (this.doctors) {
+        return; // If the collection is already assigned, exit the method
+      }
+
+      const db = client.db(process.env.DOCTORS_NS);
+      this.doctors = db.collection("doctors");
     } catch (e) {
       console.error(`Unable to establish a connection handle in DoctorsDAO: ${e}`);
     }
   }
 
-  static async getDoctors({
-    filters = null,
-    page = 0,
-    doctorsPerPage = 20,
-  } = {}) {
-    let query;
+  static async getDoctors({ filters = null, page = 0, doctorsPerPage = 20 } = {}) {
+    if (!this.doctors) {
+      console.error("The doctors collection is not initialized.");
+      return { doctorsList: [], totalNumDoctors: 0 };
+    }
+  
+    let query = {};
+  
     if (filters) {
       if ("city" in filters) {
-        query = { "city": { $eq: filters["city"] } };
+        query["city"] = { $eq: filters.city };
       }
-       if ("specialty" in filters) {
-        query = { "specialty": { $eq: filters["specialty"] } };
+      if ("specialty" in filters) {
+        query["specialty"] = { $eq: filters.specialty };
       }
     }
-
-    let cursor;
+  
     try {
-      cursor = await doctors.find(query);
-    } catch (e) {
-      console.error(`Unable to issue find command, ${e}`);
-      return { doctorsList: [], totalNumDoctors: 0 };
-    }
-
-    const displayCursor = cursor.limit(doctorsPerPage).skip(doctorsPerPage * page);
-
-    try{
+      const cursor = this.doctors.find(query);
+      const totalNumDoctors = await this.doctors.countDocuments(query);
+  
+      const displayCursor = cursor.limit(doctorsPerPage).skip(doctorsPerPage * page);
       const doctorsList = await displayCursor.toArray();
-      const totalNumDoctors = await doctors.countDocuments(query);
-
+  
       return { doctorsList, totalNumDoctors };
-    }
-    catch(e){
-      console.error(`Unable to convert cursor to array or problem counting documents, ${e}`);
+    } catch (e) {
+      console.error(`Unable to retrieve doctors: ${e}`);
       return { doctorsList: [], totalNumDoctors: 0 };
     }
-
   }
-
-  static async getDoctorByID(id) {
-    try {
-      const pipeline = [
-        {
-          $match: {
-            _id: new ObjectId(id),
-          },
-        },
-      ];
-      return await doctors.aggregate(pipeline).next();
-    } catch (e) {
-      console.error(`Something went wrong in getDoctorByID: ${e}`);
-      throw e;
-    } 
-  }
+  
+  
 
   static async getDoctorByCity(city) {
     try {

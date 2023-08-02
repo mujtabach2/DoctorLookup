@@ -6,43 +6,71 @@ const pushToMongo  = require('./mongoPush.js')
 const { specialties, canadaCities } = require('./data.js');
 
 const review = {
+  user:"",
   rating: "",
   comment: "",
   date: "",
 };
 
 
+// async function searchDoctorPhoneNumber(doctor) {
+//   const driver = await new Builder().forBrowser('chrome').build();
+//   const searchQuery = `${doctor.name} `;
+//   const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+
+//   try {
+//     await driver.get(searchUrl);
+
+//     // Wait for the knowledge panel to appear
+
+//     const details = [doctor.phoneNumber,doctor.address]
+//     // Get the phone number from the knowledge panel
+
+//     const phoneNumberElement = await driver.findElement(By.css('.Z1hOCe .LrzXr.zdqRlf.kno-fv span'));
+//     details[0] = await phoneNumberElement.getAttribute('textContent');
+
+//     if(details[1] = '')
+//     {
+//       const addressElements = await driver.findElement(By.css('.LrzXr'))
+//       details[1] = await addressElements.getAttribute('textContent');
+//     } 
+
+//     return details;
+//   } catch (error) {
+//     console.error('Error occurred during search:', error);
+//     return null;
+//   } finally {
+//     await driver.quit();
+//   }
+// }
+
 async function searchDoctorPhoneNumber(doctor) {
-  const driver = await new Builder().forBrowser('chrome').build();
   const searchQuery = `${doctor.name} `;
-  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+  const searchUrl = `https://web.archive.org/save/${encodeURIComponent(searchQuery)}`;
 
   try {
-    await driver.get(searchUrl);
+    const response = await fetch(searchUrl);
+    const archiveUrl = response.headers.get('Content-Location');
+    const driver = await new Builder().forBrowser('chrome').build();
+    await driver.get(archiveUrl);
 
-    // Wait for the knowledge panel to appear
+    // Wait for the archived page to load
+    await driver.sleep(2000);
 
-    const details = [doctor.phoneNumber,doctor.address]
-    // Get the phone number from the knowledge panel
-
+    // Perform scraping on the archived page
     const phoneNumberElement = await driver.findElement(By.css('.Z1hOCe .LrzXr.zdqRlf.kno-fv span'));
-    details[0] = await phoneNumberElement.getAttribute('textContent');
+    const phoneNumber = await phoneNumberElement.getAttribute('textContent');
 
-    if(details[1] = '')
-    {
-      const addressElements = await driver.findElement(By.css('.LrzXr'))
-      details[1] = await addressElements.getAttribute('textContent');
-    } 
+    // ... other scraping logic on the archived page
 
-    return details;
+    await driver.quit();
+
+    return phoneNumber; // Return the scraped phone number from the archived page
   } catch (error) {
     console.error('Error occurred during search:', error);
     return null;
-  } finally {
-    await driver.quit();
   }
 }
-
 
 const doctors = [];
 
@@ -70,7 +98,7 @@ async function scrape(province,city,type) {
             name: "",
             address: "",
             phone: "",
-            reviews: [],
+            reviews: [review],
             specialty: type,
             star: "",
             imgUrl: "",
@@ -139,10 +167,9 @@ async function scrape(province,city,type) {
     for (let i = 0; i < doctors.length; i++) {
       console.log(`Doctor: ${doctors[i].name}\nAddress: ${doctors[i].address}\nPhone: ${doctors[i].phone}\nSpecialty: ${doctors[i].specialty}\nStars: ${doctors[i].star}\nImage: ${doctors[i].imgUrl}\n`);
     }
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    pushToMongo(doctors)
   }
-  await new Promise(resolve => setTimeout(resolve, 2000));
-  pushToMongo()
-  
 }
 
 
@@ -160,11 +187,12 @@ async function runScraping() {
   } finally {
     await driver.quit();
   }
-  pushToMongo(uri)
+  pushToMongo(doctors)
 }
 
-runScraping()
+//runScraping()
 
+scrape('ab','calgary','dermatologist')
 
 // Connect to MongoDB Atlas
 

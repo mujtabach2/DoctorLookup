@@ -8,12 +8,11 @@ export default class DoctorsController {
         let filters = {}
         if (req.query.city) {
             filters.city = req.query.city
-        }else if(req.query.specialty){
-            filters.specialty = req.query.specialty
-        }else if(req.query.name){
-            filters.name = req.query.name
         }
-
+        if(req.query.specialty){
+            filters.specialty = req.query.specialty
+        }
+// FIX ISSUE DOESNT SEEM TO GET DOCTOR FROM MONGODB BUT CONNECTED
         const { doctorsList, totalNumDoctors } = await DoctorsDAO.getDoctors({
             filters,
             page,

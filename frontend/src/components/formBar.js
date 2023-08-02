@@ -3,15 +3,15 @@ import { canadaCities, specialties } from '../scrape/data';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import './formbar.css';
 import DoctorDataService from '../services/doctor.js';
-import { Link } from 'react-router-dom';
-import Map from './map';
+import DoctorList from './doctor-list.js';
 
-export default function FormBar() {
+export default function FormBar({user}) {
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedSpecialty, setSelectedSpecialty] = useState('');
   const [location, setLocation] = useState('');
   const [doctors, setDoctors] = useState([]);
   const [mapCenter, setMapCenter] = useState({ lat: 0, lng: 0 });
+  const [showMap, setShowMap] = useState(false);
 
   const handleCityChange = (event) => {
     setSelectedCity(event.target.value);
@@ -32,16 +32,28 @@ export default function FormBar() {
 
   const retrieveDoctors = () => {
     const doctorDataService = new DoctorDataService();
-    doctorDataService.getAll()
+    const queryParams = {};
+  
+    if (selectedCity) {
+      const cityObj = JSON.parse(selectedCity); // Convert selectedCity to an object
+      queryParams.city = cityObj.city; // Extract the city property
+    }
+    if (selectedSpecialty) {
+      queryParams.specialty = selectedSpecialty;
+    }
+  
+  
+    doctorDataService.getDoctors(queryParams)
       .then((response) => {
         console.log(response.data);
         setDoctors(response.data.doctors);
-        setMapCenter({ lat: response.data.latitude, lng: response.data.longitude });
+       setMapCenter({ lat: response.data.latitude, lng: response.data.longitude });
       })
       .catch((e) => {
         console.log(e);
       });
   };
+  
   
 
   useEffect(() => {
@@ -49,6 +61,7 @@ export default function FormBar() {
   }, []);
 
   return (
+    <div className="container">
     <div className="container oval-container">
       <form onSubmit={handleSubmit}>
         <div className="row mb-3">
@@ -108,52 +121,21 @@ export default function FormBar() {
           </div>
         </div>
         <div className="col-sm-12">
-          <button type="submit" className="btn btn-primary">
+          <button onClick={()=> setShowMap(!showMap)}type="submit" className="btn btn-primary">
             Submit
           </button>
         </div>
       </form>
-      {doctors.length > 0 && (
-        <div className="App">
-          <Map
-            google={window.google}
-            style={{ width: '100%', height: '400px' }}
-            initialCenter={mapCenter}
-            zoom={10}
-          >
-            {doctors.map((doctor) => (
-              <div
-                key={doctor.id}
-                lat={doctor.latitude}
-                lng={doctor.longitude}
-                name={doctor.name}
-              />
-            ))}
-          </Map>
-          {doctors.map((doctor) => {
-            return (
-              <div key={doctor.id}>
-                <img
-                  className="card-img-top"
-                  src={doctor.imgUrl}
-                  alt="Card image cap"
-                />
-                <div className="card" style={{ width: '18rem' }}>
-                  <div className="card-body">
-                    <h5 className="card-title">{doctor.name}</h5>
-                    <h3 className="card-text">{doctor.specialty}</h3>
-                  </div>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">{doctor.star}</li>
-                    <li className="list-group-item">{doctor.address}</li>
-                    <li className="list-group-item">{doctor.reviews}</li>
-                  </ul>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
+     
     </div>
-  );
+    {doctors.length > 0 && showMap && (
+   
+
+          <div className="App">
+            <DoctorList user={user}clientAddress={location} doctors={doctors} />
+          </div> 
+        )}
+    
+  
+    </div>);
 }
