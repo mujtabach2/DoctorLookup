@@ -13,7 +13,7 @@ export function useGeocoding(clientAddress, doctors, setSortedDoctors) {
           }
           
           const googleScript = document.createElement('script');
-          googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.KEY}&libraries=places`;
+          googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${KEY}&libraries=places`;
           googleScript.onload = () => {
             geocodeClientAddress();
           };

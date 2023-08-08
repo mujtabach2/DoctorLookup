@@ -412,7 +412,7 @@ export default function DoctorList({ user, clientAddress, doctors }) {
 
 
 const renderDoctorReviews = (doctor) => {
-  console.log('Rendering reviews for doctor:', doctor);
+ 
   if (!doctorReviews[doctor._id] || !showReviewsMap[doctor._id]) {
     return null;
   }
