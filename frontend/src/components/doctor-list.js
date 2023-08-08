@@ -8,21 +8,7 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import './doctor-list.css';
 
-const LoginPopup = ({ onClose }) => {
-  return (
-    <div className="modal-backdrop">
-    <div className="modal-container">
-      <div className="modal-content">
-        <p>Please log in to add a review.</p>
-        {/* Link to localhost:8080/login */}
-        <a href="https://doctorlook.onrender.com/api/v1/doctors/login" className="btn btn-primary">Login</a>
-        <button className="btn btn-primary" onClick={onClose}>Close</button>
-      </div>
-    </div>
-  </div>
-  
-  );
-};
+
 
 
 export default function DoctorList({ user, clientAddress, doctors }) {
@@ -577,7 +563,21 @@ const renderDoctorReviews = (doctor) => {
                 </>
               ) : (
                 // Show a login popup when the user is not logged in and tries to add a review
-                <button className="btn btn-primary" onClick={() => { togglePopup(); LoginPopup(togglePopup); }}>
+                <button className="btn btn-primary" onClick={() => { togglePopup(); LoginPopup = () => {
+                  return (
+                    <div className="modal-backdrop">
+                    <div className="modal-container">
+                      <div className="modal-content">
+                        <p>Please log in to add a review.</p>
+                        {/* Link to localhost:8080/login */}
+                        <a href="https://doctorlook.onrender.com/api/v1/doctors/login" className="btn btn-primary">Login</a>
+                        <button className="btn btn-primary" onClick={togglePopup()}>Close</button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  );
+                };}}>
                   Add Review (Log in required)
                 </button>
 
