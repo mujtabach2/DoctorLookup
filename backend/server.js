@@ -116,6 +116,7 @@ app.post("/login", (req, res, next) => {
     });
   })(req, res, next);
 });
+app.use(methodOverride("_method"));
 
 app.get("/logout", (req, res) => {
   if (req.method === "POST") {
