@@ -525,6 +525,7 @@ const renderDoctorReviews = (doctor) => {
                 </ul>
                 <li className="list-group-item">{doctor.address}</li>
                 <p>Distance: {doctor.distance ? doctor.distance.toFixed(2) : 'N/A'} miles</p>
+                {renderDoctorReviews(doctor)} 
                 <button
                       className="btn btn-primary"
                       onClick={(e) => {
@@ -538,7 +539,7 @@ const renderDoctorReviews = (doctor) => {
                 {user ? (
                   <>
                     {/* Display doctor reviews */}
-                    {renderDoctorReviews(doctor)} 
+                    {/* //{renderDoctorReviews(doctor)}  */}
   
                    
   
