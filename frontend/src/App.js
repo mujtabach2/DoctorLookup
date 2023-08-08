@@ -30,7 +30,7 @@ function App()
         .then((res) => {
           if (res.status === 200) {
             console.log("Logout successful");
-            window.location.href = res.config.url;
+            window.location.href = res.url;
           } else {
             console.error("Error logging out. Response:", res);
           }

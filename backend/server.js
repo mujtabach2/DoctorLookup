@@ -117,6 +117,11 @@ app.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
+app.get("/logout", (req, res) => { 
+  req.logout();
+  res.redirect("/login");
+});
+  
 app.post("/logout", (req, res) => {
   try {
     req.logout();
@@ -126,7 +131,7 @@ app.post("/logout", (req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
       }
       res.clearCookie("connect.sid"); // Clear the session cookie
-      res.redirect("https://healthconnect-8bm6.onrender.com/ ");
+      return res.redirect("https://healthconnect-8bm6.onrender.com/"); // Redirect after successful logout
     });
   } catch (error) {
     console.error("Error logging out:", error);
@@ -196,6 +201,5 @@ MongoClient.connect(process.env.DOCTORS_DB_URI, {
     console.error(`Error connecting to the database: ${err}`);
     process.exit(1);
   });
-
-
-export default app;
+});
+export default app
