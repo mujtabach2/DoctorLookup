@@ -30,9 +30,9 @@ function App()
     const logout = () => {
       fetch("/logout", { credentials: "include" })
         .then((res) => {
-          if (res.ok) {
+          if (!res.ok) {
             console.log("Logout successful"); // Check if the redirect is happening
-            window.location.href = res.url;
+            window.location.href = "https://healthconnect-8bm6.onrender.com/";
           } else {
             console.error("Error logging out. Response:", res);
           }
