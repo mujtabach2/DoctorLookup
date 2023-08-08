@@ -11,9 +11,9 @@ export function useGeocoding(clientAddress, doctors, setSortedDoctors) {
             console.error('Google Maps API not available.');
             return;
           }
-          
+          let key = "AIzaSyDZRcNlZiVZWcu0yyMsRNnOUHmL3X9SPt0"
           const googleScript = document.createElement('script');
-          googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${AIzaSyDZRcNlZiVZWcu0yyMsRNnOUHmL3X9SPt0}&libraries=places`;
+          googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`;
           googleScript.onload = () => {
             geocodeClientAddress();
           };
