@@ -18,6 +18,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
 import mongoose from "mongoose";
+import { redirect } from "react-router-dom";
 const { Schema, model } = mongoose;
 
 
@@ -119,7 +120,8 @@ app.use(methodOverride("_method"));
 app.get("/logout", (req, res) => {
     console.log("Received a GET request to /logout");
     req.logout();
-    res.redirect("/"); 
+    const redirectURL = `https://healthconnect-8bm6.onrender.com/`;
+    res.redirect(redirectURL); 
   });
 app.post("/logout", (req, res) => {
   try {
@@ -130,7 +132,8 @@ app.post("/logout", (req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
       }
       res.clearCookie("connect.sid"); // Clear the session cookie
-      return res.redirect("/"); // Redirect after successful logout
+      const redirectURL = `https://healthconnect-8bm6.onrender.com/`;
+      return res.redirect(redirectURL); // Redirect after successful logout
     });
   } catch (error) {
     console.error("Error logging out:", error);
