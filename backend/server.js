@@ -6,7 +6,7 @@ import DoctorsDAO from "./dao/doctorsDAO.js";
 import ReviewsDAO from "./dao/reviewsDAO.js";
 import mongodb from "mongodb";
 import dotenv from "dotenv";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import passport from "passport";
 import initialize from "./pasport-config.js";
 import flash from "express-flash";

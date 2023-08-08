@@ -1,5 +1,5 @@
 import { Strategy as LocalStrategy } from 'passport-local';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import UsersDAO from "./dao/usersDao.js";
 
 export default function initialize(passport, getUserByEmail, getUserById) {
