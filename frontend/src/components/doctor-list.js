@@ -560,9 +560,11 @@ const renderDoctorReviews = (doctor) => {
                 </>
               ) : (
                 // Show a login popup when the user is not logged in and tries to add a review
-                <button className="btn btn-primary" onClick={ togglePopup() }>
-                  Add Review (Log in required)
-                </button>
+                <a href="https://doctorlook.onrender.com/api/v1/doctors/login">
+                  <button className="btn btn-primary" href>
+                    Add Review (Log in required)
+                  </button>
+                </a>
 
               )}
               {/* Button to show all reviews for a doctor */}
