@@ -119,7 +119,7 @@ app.use(methodOverride("_method"));
 app.get("/logout", (req, res) => {
     console.log("Received a GET request to /logout");
     req.logout();
-    res.redirect("/https://healthconnect-8bm6.onrender.com/"); 
+    res.redirect("/"); 
   });
 app.post("/logout", (req, res) => {
   try {
@@ -130,7 +130,7 @@ app.post("/logout", (req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
       }
       res.clearCookie("connect.sid"); // Clear the session cookie
-      return res.redirect("https://healthconnect-8bm6.onrender.com/"); // Redirect after successful logout
+      return res.redirect("/"); // Redirect after successful logout
     });
   } catch (error) {
     console.error("Error logging out:", error);
