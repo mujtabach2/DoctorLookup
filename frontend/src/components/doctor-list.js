@@ -577,9 +577,10 @@ const renderDoctorReviews = (doctor) => {
                 </>
               ) : (
                 // Show a login popup when the user is not logged in and tries to add a review
-                <button className="btn btn-primary" onClick={togglePopup}>
+                <button className="btn btn-primary" onClick={() => { togglePopup(); LoginPopup(togglePopup); }}>
                   Add Review (Log in required)
                 </button>
+
               )}
               {/* Button to show all reviews for a doctor */}
              
