@@ -525,13 +525,7 @@ const renderDoctorReviews = (doctor) => {
                 </ul>
                 <li className="list-group-item">{doctor.address}</li>
                 <p>Distance: {doctor.distance ? doctor.distance.toFixed(2) : 'N/A'} miles</p>
-                {/* Review section */}
-                {user ? (
-                  <>
-                    {/* Display doctor reviews */}
-                    {renderDoctorReviews(doctor)} 
-  
-                    <button
+                <button
                       className="btn btn-primary"
                       onClick={(e) => {
                        handleToggleShowReviews(doctor._id)
@@ -539,7 +533,14 @@ const renderDoctorReviews = (doctor) => {
                       }}
                     >
                      {showReviewsPopup ? "Hide Reviews" : "Show Reviews"}
-                </button>
+                    </button>
+                {/* Review section */}
+                {user ? (
+                  <>
+                    {/* Display doctor reviews */}
+                    {renderDoctorReviews(doctor)} 
+  
+                   
   
                      {/* Review form for logged-in users */}
                   <form onSubmit={(e) => handleSubmit(e, doctor._id)}>
@@ -548,8 +549,8 @@ const renderDoctorReviews = (doctor) => {
                         type="text"
                         className="form-control"
                         name="review"
-                        value={reviewData[doctor._id]?.review} // issue with this line here , data is not being passed to the reviewData object
-                        onChange={(e) => handleChange(e, doctor._id)} // Pass the doctorId to handleChange
+                        value={reviewData[doctor._id]?.review} 
+                        onChange={(e) => handleChange(e, doctor._id)} 
                         placeholder="Enter review"
                       />
                     </div>
