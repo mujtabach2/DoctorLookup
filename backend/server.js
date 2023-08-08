@@ -82,6 +82,7 @@ const storeUser = async (userData) => {
 
 
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 app.use(flash());
 app.use(session({
   secret: process.env.SESSION_SECRET,

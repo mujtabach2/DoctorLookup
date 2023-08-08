@@ -3,7 +3,7 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import React, { useEffect, useState, useContext } from "react";
 import FormBar from "./components/formBar"
-import http from './http-common';
+import http from './http-common.js';
 import DoctorDataService from "./services/doctor.js";
 import NavBar from "./components/navbar"
 
@@ -53,6 +53,7 @@ function App()
           console.error("Error logging in:", error);
         });
     };
+    
     
     
   
