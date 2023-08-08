@@ -31,7 +31,7 @@ function App()
         .then((res) => {
           if (res.status === 200) {
             console.log("Logout successful");
-            window.location.href = res.url;
+            window.location.href = "https://doctorlook.onrender.com/";
           } else {
             console.error("Error logging out. Response:", res);
           }
