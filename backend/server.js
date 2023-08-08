@@ -115,14 +115,11 @@ app.post("/login", (req, res, next) => {
 app.use(methodOverride("_method"));
 
 app.get("/logout", (req, res) => {
-  if (req.method === "POST") {
+    console.log("Received a GET request to /logout");
     req.logout();
-    res.redirect("/login");
-  } else {
-    res.status(405).send("Method Not Allowed");
-  }
-});
-app.post("/api/v1/doctors/logout", (req, res) => {
+    res.redirect("/https://healthconnect-8bm6.onrender.com/"); 
+  });
+app.post("/logout", (req, res) => {
   try {
     req.logout();
     req.session.destroy((err) => {
