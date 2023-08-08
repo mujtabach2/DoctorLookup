@@ -78,7 +78,10 @@ const storeUser = async (userData) => {
 
 
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT"]
+}));
 app.use(flash());
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -182,8 +185,10 @@ MongoClient.connect(process.env.DOCTORS_DB_URI, {
 
     app.set("views", path.join(__dirname, "views")); // Set the views directory
     app.set("view engine", "ejs"); // Set EJS as the view engine
-
-    app.use(cors());
+    app.use(cors({
+      origin: allowedOrigins,
+      methods: ["GET", "POST", "PUT"]
+    }));
     app.use(express.json());
     app.use(methodOverride("_method"));
 
