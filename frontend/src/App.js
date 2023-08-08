@@ -25,10 +25,12 @@ function App()
     }, []);
   
   
+
     const logout = () => {
-      fetch("/logout", { credentials: "include" })
+      axios
+        .get("/logout", { withCredentials: true })
         .then((res) => {
-          if (res.ok) {
+          if (res.status === 200) {
             console.log("Logout successful"); // Check if the redirect is happening
             window.location.href = res.url;
           } else {
@@ -41,11 +43,11 @@ function App()
     };
     
     
-  
     const login = () => {
-      fetch("/login", { credentials: "include" })
+      axios
+        .get("/login", { withCredentials: true })
         .then((res) => {
-          if (res.ok) {
+          if (res.status === 200) {
             window.location.href = "https://doctorlook.onrender.com/api/v1/doctors/login"; // Redirect to the login page on the backend
           } else {
             console.error("Error logging in:", res.statusText);
@@ -55,6 +57,7 @@ function App()
           console.error("Error logging in:", error);
         });
     };
+    
   
     async function handleSearch(city, specialty, location) {
         try {
