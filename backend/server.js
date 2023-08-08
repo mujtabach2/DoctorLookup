@@ -77,10 +77,6 @@ const storeUser = async (userData) => {
 };
 
 
-
-
-
-
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(flash());
@@ -126,7 +122,7 @@ app.get("/logout", (req, res) => {
     res.status(405).send("Method Not Allowed");
   }
 });
-app.post("/logout", (req, res) => {
+app.post("/api/v1/doctors/logout", (req, res) => {
   try {
     req.logout();
     req.session.destroy((err) => {
