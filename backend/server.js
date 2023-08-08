@@ -117,11 +117,14 @@ app.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-app.get("/logout", (req, res) => { 
-  req.logout();
-  res.redirect("/login");
+app.get("/logout", (req, res) => {
+  if (req.method === "POST") {
+    req.logout();
+    res.redirect("/login");
+  } else {
+    res.status(405).send("Method Not Allowed");
+  }
 });
-  
 app.post("/logout", (req, res) => {
   try {
     req.logout();

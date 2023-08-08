@@ -6,6 +6,7 @@ import FormBar from "./components/formBar"
 import http from './http-common.js';
 import DoctorDataService from "./services/doctor.js";
 import NavBar from "./components/navbar"
+import httpCommon from './http-common.js';
 
 const UserContext = React.createContext(null);
 function App()
@@ -26,7 +27,7 @@ function App()
   
 
     const logout = () => {
-      http.get("/logout")
+      httpCommon.get("/logout")
         .then((res) => {
           if (res.status === 200) {
             console.log("Logout successful");
