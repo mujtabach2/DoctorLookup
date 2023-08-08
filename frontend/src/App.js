@@ -27,7 +27,7 @@ function App()
   
 
     const logout = () => {
-      http.post("/logout")
+      http.get("/logout")
         .then((res) => {
           if (res.status === 200) {
             console.log("Logout successful");
