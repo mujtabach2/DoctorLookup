@@ -117,12 +117,7 @@ app.post("/login", (req, res, next) => {
 });
 app.use(methodOverride("_method"));
 
-app.get("/logout", (req, res) => {
-    console.log("Received a GET request to /logout");
-    req.logout();
-    const redirectURL = `https://healthconnect-8bm6.onrender.com/`;
-    res.redirect(redirectURL); 
-  });
+
 app.post("/logout", (req, res) => {
   try {
     req.logout();

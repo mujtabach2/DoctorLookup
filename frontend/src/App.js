@@ -26,12 +26,13 @@ function App()
   
   
 
+   
     const logout = () => {
-      http.get("/logout")
+      fetch("/logout", { credentials: "include" })
         .then((res) => {
-          if (res.status === 200) {
-            console.log("Logout successful");
-            window.location.href = "https://doctorlook.onrender.com/";
+          if (res.ok) {
+            console.log("Logout successful"); // Check if the redirect is happening
+            window.location.href = res.url;
           } else {
             console.error("Error logging out. Response:", res);
           }
