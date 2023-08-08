@@ -110,7 +110,7 @@ app.post("/login", (req, res, next) => {
       }
 
       const serializedUser = JSON.stringify(user);
-      const redirectURL = `https://64d21a5d732f035494f481e6--whimsical-mooncake-75aac8.netlify.app/?user=${encodeURIComponent(serializedUser)}`;
+      const redirectURL = `https://transcendent-blini-823048.netlify.app/?user=${encodeURIComponent(serializedUser)}`;
       return res.redirect(redirectURL); // Redirect to the desired page after successful login
     });
   })(req, res, next);
@@ -125,7 +125,7 @@ app.post("/logout", (req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
       }
       res.clearCookie("connect.sid"); // Clear the session cookie
-      res.redirect("https://64d21a5d732f035494f481e6--whimsical-mooncake-75aac8.netlify.appcd ");
+      res.redirect("https://transcendent-blini-823048.netlify.app/ ");
     });
   } catch (error) {
     console.error("Error logging out:", error);
