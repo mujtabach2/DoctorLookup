@@ -1,6 +1,6 @@
 # Doctor Lookup
 
-![Doctor Lookup](doctor_lookup.jpg)
+![Doctor Lookup](frontend/public/logo.png)
 
 ## Description
 fix review ,
