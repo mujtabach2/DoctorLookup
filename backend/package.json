@@ -21,6 +21,7 @@
     "mongodb": "^5.6.0",
     "passport": "^0.6.0",
     "react-google-maps": "^9.4.5",
-    "workbox-webpack-plugin": "7.0.0"
+    "workbox-webpack-plugin": "7.0.0",
+    "bcrypt": "^5.0.1"
   }
 }
