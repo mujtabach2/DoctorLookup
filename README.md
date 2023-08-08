@@ -1,7 +1,10 @@
 # Doctor Lookup
 
-![Doctor Lookup](doctor_lookup.jpg)
+<p align="center">
+  <img src="frontend/public/logo.png" alt="Doctor Lookup Logo">
+</p>
 
+<h1 align="center">Doctor Lookup</h1>
 ## Description
 fix review ,
 fix backend login reach
