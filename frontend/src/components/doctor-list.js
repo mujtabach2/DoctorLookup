@@ -15,7 +15,7 @@ const LoginPopup = ({ onClose }) => {
       <div className="modal-content">
         <p>Please log in to add a review.</p>
         {/* Link to localhost:8080/login */}
-        <a href="http://localhost:8080/login" className="btn btn-primary">Login</a>
+        <a href="https://doctorlook.onrender.com/api/v1/doctors/login" className="btn btn-primary">Login</a>
         <button className="btn btn-primary" onClick={onClose}>Close</button>
       </div>
     </div>

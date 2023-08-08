@@ -3,7 +3,7 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import React, { useEffect, useState, useContext } from "react";
 import FormBar from "./components/formBar"
-import Map from './components/map';
+
 
 import DoctorDataService from "./services/doctor.js";
 import NavBar from "./components/navbar"
@@ -46,7 +46,7 @@ function App()
       fetch("/login", { credentials: "include" })
         .then((res) => {
           if (res.ok) {
-            window.location.href = "http://localhost:8080/login"; // Redirect to the login page on the backend
+            window.location.href = "https://doctorlook.onrender.com/api/v1/doctors/login"; // Redirect to the login page on the backend
           } else {
             console.error("Error logging in:", res.statusText);
           }
