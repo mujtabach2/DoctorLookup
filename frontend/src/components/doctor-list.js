@@ -532,9 +532,10 @@ const renderDoctorReviews = (doctor) => {
                        handleToggleShowReviews(doctor._id)
                         //toggleReviewsPopup(e, doctor._id);
                       }}
+                      style={{ marginBottom: '10px' }}
                     >
                      {showReviewsPopup ? "Hide Reviews" : "Show Reviews"}
-                    </button>
+                    </button >
                 {/* Review section */}
                 {user ? (
                   <>
