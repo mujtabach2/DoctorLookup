@@ -13,72 +13,74 @@ const review = {
 };
 
 
-// async function searchDoctorPhoneNumber(doctor) {
-//   const driver = await new Builder().forBrowser('chrome').build();
-//   const searchQuery = `${doctor.name} `;
-//   const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
-
-//   try {
-//     await driver.get(searchUrl);
-
-//     // Wait for the knowledge panel to appear
-
-//     const details = [doctor.phoneNumber,doctor.address]
-//     // Get the phone number from the knowledge panel
-
-//     const phoneNumberElement = await driver.findElement(By.css('.Z1hOCe .LrzXr.zdqRlf.kno-fv span'));
-//     details[0] = await phoneNumberElement.getAttribute('textContent');
-
-//     if(details[1] = '')
-//     {
-//       const addressElements = await driver.findElement(By.css('.LrzXr'))
-//       details[1] = await addressElements.getAttribute('textContent');
-//     } 
-
-//     return details;
-//   } catch (error) {
-//     console.error('Error occurred during search:', error);
-//     return null;
-//   } finally {
-//     await driver.quit();
-//   }
-// }
-
 async function searchDoctorPhoneNumber(doctor) {
+  const driver = await new Builder().forBrowser('chrome').build();
   const searchQuery = `${doctor.name} `;
-  const searchUrl = `https://web.archive.org/save/${encodeURIComponent(searchQuery)}`;
+  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
 
   try {
-    const response = await fetch(searchUrl);
-    const archiveUrl = response.headers.get('Content-Location');
-    const driver = await new Builder().forBrowser('chrome').build();
-    await driver.get(archiveUrl);
-
-    // Wait for the archived page to load
+    await driver.get(searchUrl);
     await driver.sleep(2000);
+    // Wait for the knowledge panel to appear
 
-    // Perform scraping on the archived page
+    const details = [doctor.phoneNumber,doctor.address]
+    // Get the phone number from the knowledge panel
+
     const phoneNumberElement = await driver.findElement(By.css('.Z1hOCe .LrzXr.zdqRlf.kno-fv span'));
-    const phoneNumber = await phoneNumberElement.getAttribute('textContent');
+    details[0] = await phoneNumberElement.getAttribute('textContent');
 
-    // ... other scraping logic on the archived page
-
-    await driver.quit();
-
-    return phoneNumber; // Return the scraped phone number from the archived page
+    if(details[1] = '')
+    {
+      const addressElements = await driver.findElement(By.css('.LrzXr'))
+      details[1] = await addressElements.getAttribute('textContent');
+    } 
+    await driver.sleep(2000);
+    return details;
   } catch (error) {
     console.error('Error occurred during search:', error);
     return null;
+  } finally {
+    await driver.quit();
   }
 }
 
-const doctors = [];
+// async function searchDoctorPhoneNumber(doctor) {
+//   const searchQuery = `${doctor.name} `;
+//   const searchUrl = `https://web.archive.org/save/${encodeURIComponent(searchQuery)}`;
+
+//   try {
+//     const response = await fetch(searchUrl);
+//     const archiveUrl = response.headers.get('Content-Location');
+//     const driver = await new Builder().forBrowser('chrome').build();
+//     await driver.get(archiveUrl);
+
+//     // Wait for the archived page to load
+//     await driver.sleep(2000);
+
+//     // Perform scraping on the archived page
+//     const phoneNumberElement = await driver.findElement(By.css('.Z1hOCe .LrzXr.zdqRlf.kno-fv span'));
+//     const phoneNumber = await phoneNumberElement.getAttribute('textContent');
+
+//     // ... other scraping logic on the archived page
+
+//     await driver.quit();
+
+//     return phoneNumber; // Return the scraped phone number from the archived page
+//   } catch (error) {
+//     console.error('Error occurred during search:', error);
+//     return null;
+//   }
+// }
+
+
 
 async function scrape(province,city,type) {
+    const doctors = [];
     let driver = await new Builder()
       .forBrowser('chrome')
       .build();
-    
+      const MAX_SCRAPE = 10
+      let doctorCount = 0
     try {
       let url = `https://www.ratemds.com/best-doctors/${province}/${city}/${type}/`
       console.log(url)
@@ -86,7 +88,7 @@ async function scrape(province,city,type) {
       let currentPage = 1;
       const totalPages = 3;
   
-      while (currentPage <= totalPages) {
+      while (currentPage <= totalPages && doctorCount < MAX_SCRAPE ) {
         let doctorElements = await driver.findElements(By.css('.search-item-doctor-name'));
         let addressElements = await driver.findElements(By.css('.doctor-address'))
         let starElements = await driver.findElements(By.css('.reviews'))
@@ -122,6 +124,10 @@ async function scrape(province,city,type) {
           }
 
           doctors.push(doctor);
+          
+          if(doctorCount >= MAX_SCRAPE){
+            break
+          }
           await driver.sleep(2000);
         }
   
@@ -173,30 +179,85 @@ async function scrape(province,city,type) {
 }
 
 
-async function runScraping() {
-  const driver = await new Builder().forBrowser('chrome').build();
+// async function runScraping() {
+//   const driver = await new Builder().forBrowser('chrome').build();
 
+//   try {
+//     for (let i = 0; i < specialties.length; i++) {
+//       for (let x = 0; x < canadaCities.length; x++) {
+//         await scrape(canadaCities[x].province, canadaCities[x].city, specialties[i]);
+//       }
+//     }
+//   } catch (error) {
+//     console.error('Error occurred during scraping:', error);
+//   } finally {
+//     await driver.quit();
+//   }
+//   pushToMongo(doctors)
+// }
+
+// runScraping(); // Run the scraping function
+async function runScraping() {
   try {
-    for (let i = 0; i < specialties.length; i++) {
-      for (let x = 0; x < canadaCities.length; x++) {
-        await scrape(canadaCities[x].province, canadaCities[x].city, specialties[i]);
-      }
-    }
+    // Dermatologist
+    // await scrape('bc', 'vancouver', 'dermatologist');
+
+    // Family Doctor (GP)
+    // await scrape('on', 'toronto', 'family-doctor-gp');
+    // await scrape('bc', 'vancouver', 'family-doctor-gp');
+    // await scrape('ab', 'calgary', 'family-doctor-gp');
+
+    
+    await scrape('on', 'toronto', 'gynecologist-obgyn');
+    await scrape('bc', 'vancouver', 'gynecologist-obgyn');
+    await scrape('ab', 'calgary', 'gynecologist-obgyn');
+
+    // Ophthalmologist
+    await scrape('bc', 'vancouver', 'ophthalmologist');
+    await scrape('on', 'toronto', 'ophthalmologist');
+    await scrape('ab', 'calgary', 'ophthalmologist');
+
+    // Orthopedic Surgeon / Bone Specialist
+    await scrape('on', 'toronto', 'orthopedic-surgeon-bone-specialist');
+    await scrape('bc', 'vancouver', 'orthopedic-surgeon-bone-specialist');
+    await scrape('ab', 'calgary', 'orthopedic-surgeon-bone-specialist');
+
+    // Pediatrician
+    await scrape('on', 'toronto', 'pediatrician');
+    await scrape('bc', 'vancouver', 'pediatrician');
+    await scrape('ab', 'calgary', 'pediatrician');
+
+    // Psychiatrist
+    await scrape('on', 'toronto', 'psychiatrist');
+    await scrape('bc', 'vancouver', 'psychiatrist');
+    await scrape('ab', 'calgary', 'psychiatrist');
+
+    // Psychologist
+    await scrape('on', 'toronto', 'psychologist');
+    await scrape('bc', 'vancouver', 'psychologist');
+    await scrape('ab', 'calgary', 'psychologist');
+
+    // Radiologist
+    await scrape('on', 'toronto', 'radiologist');
+    await scrape('bc', 'vancouver', 'radiologist');
+    await scrape('ab', 'calgary', 'radiologist');
+
+    // Urologist
+    await scrape('on', 'toronto', 'urologist');
+    await scrape('bc', 'vancouver', 'urologist');
+    await scrape('ab', 'calgary', 'urologist');
   } catch (error) {
     console.error('Error occurred during scraping:', error);
-  } finally {
-    await driver.quit();
   }
-  pushToMongo(doctors)
 }
 
-//runScraping()
+// Call the function to start the scraping process
+runScraping();
 
-scrape('ab','calgary','dermatologist')
+
+// const
+
 
 // Connect to MongoDB Atlas
 
-module.exports = {
-  doctors, // Export the 'doctors' array
-  scrape, // Export the 'scrape' function if needed
-};
+//
