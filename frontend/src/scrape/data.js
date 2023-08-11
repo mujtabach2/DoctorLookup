@@ -14,7 +14,7 @@ const canadaCities = [
 
   const specialties = [
     "dermatologist",
-    "family-doctor-gp",
+   // "family-doctor-gp",
     "gynecologist-obgyn",
     "ophthalmologist",
     "orthopedic-surgeon-bone-specialist",
