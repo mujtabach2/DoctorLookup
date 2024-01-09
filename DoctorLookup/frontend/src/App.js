@@ -1,5 +1,5 @@
 import './App.css';
-
+import AppRouter from './AppRouter.js';
 import "bootstrap/dist/css/bootstrap.min.css"
 import React, { useEffect, useState, useContext } from "react";
 import FormBar from "./components/formBar"
@@ -73,11 +73,11 @@ function App()
     return(
       
         <div>
+            <AppRouter />
             <NavBar user={user} login={login} logout={logout} />
             <Homepage />
-            <FormBar user={user}
-            />
-            {/* //<Map /> */}
+            <FormBar user={user}/>
+            {/* //<Map />  */} 
         </div>
        
     );

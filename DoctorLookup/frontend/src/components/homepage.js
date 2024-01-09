@@ -14,7 +14,7 @@ function Homepage() {
         <div className="row">
           <div className="col">
             <h1>Doctor Lookup</h1>
-            <p>Find the best doctors in your area</p>
+            <p>Find the best doctors in your area </p>
             <div
               style={{
                 width: 213,

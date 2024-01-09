@@ -14,3 +14,4 @@ const AppRouter = () => {
         </BrowserRouter>
     );
     }
+export default AppRouter;
