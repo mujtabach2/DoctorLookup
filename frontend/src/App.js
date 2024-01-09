@@ -74,7 +74,6 @@ function App()
     return(
       
         <div>
-            <AppRouter />
             <NavBar user={user} login={login} logout={logout} />
             <FormBar user={user}
             />
