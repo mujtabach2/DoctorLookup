@@ -15,7 +15,7 @@ const review = {
 
 async function searchDoctorPhoneNumber(doctor) {
   const driver = await new Builder().forBrowser('chrome').build();
-  const searchQuery = `${doctor.name} `;
+  const searchQuery = `${doctor.name} ${doctor.city}`;
   const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
 
   try {
@@ -179,22 +179,79 @@ async function scrape(province,city,type) {
 }
 
 
-async function runScraping() {
-  const driver = await new Builder().forBrowser('chrome').build();
+// async function runScraping() {
+//   const driver = await new Builder().forBrowser('chrome').build();
 
+//   try {
+//     for (let i = 0; i < specialties.length; i++) {
+//       for (let x = 0; x < canadaCities.length; x++) {
+//         await scrape(canadaCities[x].province, canadaCities[x].city, specialties[i]);
+//       }
+//     }
+//   } catch (error) {
+//     console.error('Error occurred during scraping:', error);
+//   } finally {
+//     await driver.quit();
+//   }
+//   pushToMongo(doctors)
+// }
+
+// runScraping(); // Run the scraping function
+
+async function runScraping() {
   try {
-    for (let i = 0; i < specialties.length; i++) {
-      for (let x = 0; x < canadaCities.length; x++) {
-        await scrape(canadaCities[x].province, canadaCities[x].city, specialties[i]);
-      }
-    }
+    // Dermatologist
+    // await scrape('bc', 'vancouver', 'dermatologist');
+
+    // Family Doctor (GP)
+    // await scrape('on', 'toronto', 'family-doctor-gp');
+    // await scrape('bc', 'vancouver', 'family-doctor-gp');
+    // await scrape('ab', 'calgary', 'family-doctor-gp');
+
+    
+    //await scrape('on', 'toronto', 'gynecologist-obgyn');
+    //await scrape('bc', 'vancouver', 'gynecologist-obgyn');
+    //await scrape('ab', 'calgary', 'gynecologist-obgyn');
+
+    // // Ophthalmologist
+    // await scrape('bc', 'vancouver', 'ophthalmologist');
+    // await scrape('on', 'toronto', 'ophthalmologist');
+    // await scrape('ab', 'calgary', 'ophthalmologist');
+
+    // // Orthopedic Surgeon / Bone Specialist
+    //await scrape('on', 'toronto', 'orthopedics-sports');
+    //await scrape('bc', 'vancouver', 'orthopedics-sports');
+     //await scrape('ab', 'calgary', 'orthopedics-sports');
+
+    // // Pediatrician
+     //await scrape('on', 'toronto', 'pediatrician');
+    //await scrape('bc', 'vancouver', 'pediatrician');
+    //await scrape('ab', 'calgary', 'pediatrician');
+
+    // // Psychiatrist
+   //await scrape('on', 'toronto', 'psychiatrist');
+  //await scrape('bc', 'vancouver', 'psychiatrist');
+   // await scrape('ab', 'calgary', 'psychiatrist');
+
+    // // Psychologist
+    //redo this one
+    await scrape('on', 'toronto', 'psychologist');
+    // await scrape('bc', 'vancouver', 'psychologist');
+    // await scrape('ab', 'calgary', 'psychologist');
+
+    // // Radiologist
+    // await scrape('on', 'toronto', 'radiologist');
+    // await scrape('bc', 'vancouver', 'radiologist');
+    // await scrape('ab', 'calgary', 'radiologist');
+
+    // // Urologist
+    // await scrape('on', 'toronto', 'urologist');
+    // await scrape('bc', 'vancouver', 'urologist');
+    // await scrape('ab', 'calgary', 'urologist');
   } catch (error) {
     console.error('Error occurred during scraping:', error);
-  } finally {
-    await driver.quit();
   }
-  pushToMongo(doctors)
 }
 
-runScraping(); // Run the scraping function
-
+// Call the function to start the scraping process
+runScraping();
