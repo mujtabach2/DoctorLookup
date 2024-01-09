@@ -121,7 +121,7 @@ export default function FormBar({user}) {
           </div>
         </div>
         <div className="col-sm-12">
-          <button onClick={()=> setShowMap(!showMap)}type="submit" className="btn btn-primary">
+          <button onClick={()=> setShowMap(!showMap)}type="submit" className="btn btn-primary" style={{background: 'linear-gradient(91deg, #18A1CC 0%, #92D1FF 100%)'}}>
             Submit
           </button>
         </div>

@@ -532,7 +532,8 @@ const renderDoctorReviews = (doctor) => {
                        handleToggleShowReviews(doctor._id)
                         //toggleReviewsPopup(e, doctor._id);
                       }}
-                      style={{ marginBottom: '10px' }}
+                      style={{ marginBottom: '10px',
+                      background: 'linear-gradient(91deg, #18A1CC 0%, #92D1FF 100%)'}}
                     >
                      {showReviewsPopup ? "Hide Reviews" : "Show Reviews"}
                     </button >
@@ -556,7 +557,7 @@ const renderDoctorReviews = (doctor) => {
                         placeholder="Enter review"
                       />
                     </div>
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary" style={{background: 'linear-gradient(91deg, #18A1CC 0%, #92D1FF 100%)'}}>
                       Submit Review
                     </button>
                   </form>

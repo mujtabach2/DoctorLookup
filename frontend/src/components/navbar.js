@@ -59,68 +59,65 @@ export default function NavBar({ user, login, logout}) {
       </div>
     </nav>
     <div>
-    <div style={{marginTop: '10vh'}} className="container">
-      <div className="container">
-        <div className="col">
-        <div className="row">
-          <div className="col">
-            <h1>Doctor Lookup</h1>
-            <p>Find the best doctors in your area </p>
-            <div
-          className="SizeSTypeSecondaryStateHoverIconLeftOffIconRightOnBackgroundLightIconOnlyOff"
+    <div className="container text-center" style={{marginTop: '10vh'}}>
+  <div className="row">
+    <div className="col">
+      <h1>Doctor Lookup</h1>
+      <p>Find the best doctors in your area</p>
+      <div
+        className="SizeSTypeSecondaryStateHoverIconLeftOffIconRightOnBackgroundLightIconOnlyOff"
+        style={{
+          width: '30vw',
+          height: '20vh',
+          paddingLeft: 16,
+          paddingRight: 16,
+          paddingTop: 8,
+          paddingBottom: 8,
+          background: 'linear-gradient(91deg, #18A1CC 0%, #92D1FF 100%)',
+          boxShadow: '0px 3px 10px rgba(32, 132, 217, 0.50)',
+          borderRadius: 8,
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
+          gap: 8,
+          display: 'inline-flex',
+          cursor: 'pointer', // Add cursor style for better UX
+        }}
+        onClick={handleButtonClick}
+      >
+        <div
+          className="Text"
           style={{
-            width: 128,
-            height: 32,
-            paddingLeft: 16,
-            paddingRight: 16,
-            paddingTop: 8,
-            paddingBottom: 8,
-            background: 'linear-gradient(91deg, #18A1CC 0%, #92D1FF 100%)',
-            boxShadow: '0px 3px 10px rgba(32, 132, 217, 0.50)',
-            borderRadius: 8,
-            justifyContent: 'flex-start',
-            alignItems: 'flex-start',
-            gap: 8,
-            display: 'inline-flex',
-            cursor: 'pointer', // Add cursor style for better UX
+            textAlign: 'right',
+            color: 'white',
+            fontSize: '4rem',
+            fontFamily: 'Poppins',
+            fontWeight: '600',
+            letterSpacing: 0.20,
+            wordWrap: 'break-word',
           }}
-          onClick={handleButtonClick}
+        >
+          Search Now
+        </div>
+        <div
+          className="ChevronRight"
+          style={{
+            width: 16,
+            height: 16,
+            position: 'relative',
+          }}
         >
           <div
-            className="Text"
+            className="Vector"
             style={{
-              textAlign: 'right',
-              color: 'white',
-              fontSize: 12,
-              fontFamily: 'Poppins',
-              fontWeight: '600',
-              lineHeight: 16,
-              letterSpacing: 0.20,
-              wordWrap: 'break-word',
+              width: 4,
+              height: 8,
+              left: 6,
+              top: 4,
+              position: 'absolute',
+              border: '2px white solid',
             }}
-          >
-            Search Now 
-          </div>
-          <div
-            className="ChevronRight"
-            style={{
-              width: 16,
-              height: 16,
-              position: 'relative',
-            }}
-          >
-            <div
-              className="Vector"
-              style={{
-                width: 4,
-                height: 8,
-                left: 6,
-                top: 4,
-                position: 'absolute',
-                border: '2px white solid',
-              }}
-            ></div>
-      </div>
+          ></div>
+        </div>
     </div>
           </div>
           <div className="col">
@@ -132,20 +129,11 @@ export default function NavBar({ user, login, logout}) {
       </div>
     </div>
 
-
-
-
-
     <div className="container">
     <div className="Counters" style={{width: 1127, height: 210, position: 'relative'}}>
-    <div className="Counter" style={{width: 349, height: 176, paddingTop: 11, left: 0, top: 0, position: 'absolute', justifyContent: 'center', alignItems: 'center', display: 'inline-flex'}}>
-        <img src={counters} style={{width: '90vw', height: '30vh'}} />
-
+        <img src={counters}/>
     </div>
     </div>
-    </div>
-    </div>
-  </div>
     </div>
   );
   
