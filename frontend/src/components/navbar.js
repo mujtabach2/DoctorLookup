@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import homepagePic from './homepage1.png';
 
-import counters from './counters.png';
+import counters from './Counters.png';
 
 
 export default function NavBar({ user, login, logout}) {
