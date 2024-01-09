@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { useNavigate } from "react-router-dom";
 
-import homepagePic from '/frontend/public/homepage1.png'
-import specialist from '/frontend/public/specialist.svg'
-import clinic from '/frontend/public/clinic.svg'
-import doctorCount from '/frontend/public/doctorCount.svg'
+import homepagePic from './homepage1.png';
+import specialist from './specialist.svg';
+import clinic from './clinic.svg';
+import doctorCount from './doctorCount.svg';
 
 
 export default function NavBar({ user, login, logout}) {
