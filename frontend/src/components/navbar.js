@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { useNavigate } from "react-router-dom";
 
+import homepagePic from '/frontend/public/homepage1.png'
+import specialist from '/frontend/public/specialist.svg'
+import clinic from '/frontend/public/clinic.svg'
+import doctorCount from '/frontend/public/doctorCount.svg'
+
+
 export default function NavBar({ user, login, logout}) {
    
   const navigate = useNavigate();
@@ -128,7 +134,7 @@ export default function NavBar({ user, login, logout}) {
           </div>
           <div className="col">
             <div className="Object" style={{width: 487.12, height: 612.71, position: 'relative'}}>
-                <img src="../../public/homepage1.png" style={{width: 487.12, height: 612.71, left: 0, top: 0, position: 'absolute'}} />
+                <img src={homepagePic} style={{width: 487.12, height: 612.71, left: 0, top: 0, position: 'absolute'}} />
             </div>
       </div>
       </div>
@@ -145,7 +151,7 @@ export default function NavBar({ user, login, logout}) {
     <div className="Counter" style={{width: 349, height: 165, position: 'relative'}}>
       <div className="Counter" style={{width: 294, height: 103, left: 36, top: 0, position: 'absolute'}}>
         <div className="Group" style={{width: 115, height: 73.99, left: 0, top: 22.01, position: 'absolute'}}>
-            <img className="Shape" style={{width: 115, height: 73.99, left: 0, top: 0, position: 'absolute'}} src="../../public/doctorCount.svg" />
+            <img className="Shape" style={{width: 115, height: 73.99, left: 0, top: 0, position: 'absolute'}} src={doctorCount} />
         </div>
         <div className="200" style={{width: 150, height: 56, left: 144, top: 0, position: 'absolute', color: '#357A38', fontSize: 48, fontFamily: 'Lato', fontWeight: '900', lineHeight: 56, wordWrap: 'break-word'}}>+1200</div>
         <div className="Doctors" style={{width: 150, height: 49, left: 144, top: 54, position: 'absolute', color: 'rgba(0, 0, 0, 0.87)', fontSize: 36, fontFamily: 'Lato', fontWeight: '700', lineHeight: 56, wordWrap: 'break-word'}}>Doctors</div>
@@ -160,7 +166,7 @@ export default function NavBar({ user, login, logout}) {
     </div>
     <div className="MaecenasNislLibero" style={{width: 349, height: 88, left: 0, top: 105, position: 'absolute', textAlign: 'center', color: 'rgba(0, 0, 0, 0.87)', fontSize: 18, fontFamily: 'Lato', fontWeight: '400', lineHeight: 27, wordWrap: 'break-word'}}>Maecenas nisl libero, tincidunt id odio id, feugiat vulputate quam. </div>
     <div className="Group" style={{width: 84, height: 84, left: 55, top: 9, position: 'absolute'}}>
-    <img className="Shape" style={{width: 115, height: 73.99, left: 0, top: 0, position: 'absolute'}} src="../../public/clinic.svg" />
+    <img className="Shape" style={{width: 115, height: 73.99, left: 0, top: 0, position: 'absolute'}} src={clinic} />
     </div>
   </div>
   <div className="Counter" style={{width: 349, height: 193, left: 778, top: 17, position: 'absolute'}}>
@@ -170,7 +176,7 @@ export default function NavBar({ user, login, logout}) {
     </div>
     <div className="MaecenasNislLibero" style={{width: 349, height: 88, left: 0, top: 105, position: 'absolute', textAlign: 'center', color: 'rgba(0, 0, 0, 0.87)', fontSize: 18, fontFamily: 'Lato', fontWeight: '400', lineHeight: 27, wordWrap: 'break-word'}}>Maecenas nisl libero, tincidunt id odio id, feugiat vulputate quam. </div>
     <div className="Group" style={{width: 81, height: 75, left: 59, top: 18, position: 'absolute'}}>
-    <img className="Shape" style={{width: 115, height: 73.99, left: 0, top: 0, position: 'absolute'}} src="../../public/specialist.svg" />
+    <img className="Shape" style={{width: 115, height: 73.99, left: 0, top: 0, position: 'absolute'}} src={specialist} />
     </div>
   </div>
 </div>
