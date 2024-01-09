@@ -8,6 +8,8 @@ import DoctorDataService from "./services/doctor.js";
 import NavBar from "./components/navbar"
 import httpCommon from './http-common.js';
 import AppRouter from "./AppRouter.js";
+import { HomeDepotSearch } from 'google-search-results-nodejs';
+import Homepage from './components/homepage.js';
 
 const UserContext = React.createContext(null);
 function App()
@@ -75,7 +77,7 @@ function App()
         <div>
             <AppRouter />
             <NavBar user={user} login={login} logout={logout} />
-      
+            <Homepage />
             <FormBar user={user}
             />
             {/* //<Map /> */}
