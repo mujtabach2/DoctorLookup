@@ -10,7 +10,9 @@ function Homepage() {
     }
   return (
     <div>
+    <div className="container">
       <div className="container">
+        <div className="col">
         <div className="row">
           <div className="col">
             <h1>Doctor Lookup</h1>
@@ -104,14 +106,14 @@ function Homepage() {
                             <div className="Path19" style={{width: 126.05, height: 202.34, left: 1.25, top: -0, position: 'absolute', border: '2px #3A8EF6 solid'}}></div>
                             <div className="Path21" style={{width: 15.30, height: 12.07, left: 2.51, top: 190.99, position: 'absolute', transform: 'rotate(12deg)', transformOrigin: '0 0', border: '2px #3A8EF6 solid'}}></div>
                         </div>
-                        <img className="Union" style={{width: 42.26, height: 183.43, left: 35.66, top: 100.45, position: 'absolute'}} src="../public/union.svg" />
+                        <img className="Union" style={{width: 42.26, height: 183.43, left: 35.66, top: 100.45, position: 'absolute'}} src="../../public/union.svg" />
                         <div className="Group9411" style={{width: 426.52, height: 511.20, left: 0, top: 59.57, position: 'absolute'}}>
                             <div className="Ellipse3" style={{width: 426.52, height: 426.52, left: 0, top: 84.68, position: 'absolute', background: 'linear-gradient(0deg,  0%,  100%), linear-gradient(96deg, #3A8EF6 0%, #6F3AFA 100%)', borderRadius: 9999}} />
                             <div className="MaskGroup" style={{width: 426.52, height: 426.52, left: 0, top: 84.68, position: 'absolute'}}>
                             <div className="Ellipse2" style={{width: 426.52, height: 426.52, left: 0, top: 0, position: 'absolute', background: 'linear-gradient(0deg,  0%,  100%), linear-gradient(96deg, #3A8EF6 0%, #6F3AFA 100%)', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', borderRadius: 9999}} />
-                            <img className="Image4" style={{width: 395.44, height: 538.39, left: 19.42, top: -84.68, position: 'absolute'}} src="../public/image4.svg" />
+                            <img className="Image4" style={{width: 395.44, height: 538.39, left: 19.42, top: -84.68, position: 'absolute'}} src="../../public/image4.svg" />
                             </div>
-                            <img className="Image5" style={{width: 395.44, height: 319.31, left: 19.42, top: -0, position: 'absolute'}} src="../public/doctor.svg" />
+                            <img className="Image5" style={{width: 395.44, height: 319.31, left: 19.42, top: -0, position: 'absolute'}} src="../../public/doctor.svg" />
                         </div>
                         </div>
                         <div className="Group9414" style={{width: 195.12, height: 195.84, left: 292, top: 416.87, position: 'absolute'}}>
@@ -149,6 +151,49 @@ function Homepage() {
       </div>
       </div>
       </div>
+    </div>
+
+
+
+
+
+    <div className="container">
+    <div className="Counters" style={{width: 1127, height: 210, position: 'relative'}}>
+  <div className="Counter" style={{width: 349, height: 176, paddingTop: 11, left: 0, top: 0, position: 'absolute', justifyContent: 'center', alignItems: 'center', display: 'inline-flex'}}>
+    <div className="Counter" style={{width: 349, height: 165, position: 'relative'}}>
+      <div className="Counter" style={{width: 294, height: 103, left: 36, top: 0, position: 'absolute'}}>
+        <div className="Group" style={{width: 115, height: 73.99, left: 0, top: 22.01, position: 'absolute'}}>
+            <img className="Shape" style={{width: 115, height: 73.99, left: 0, top: 0, position: 'absolute'}} src="../../public/doctorCount.svg" />
+        </div>
+        <div className="200" style={{width: 150, height: 56, left: 144, top: 0, position: 'absolute', color: '#357A38', fontSize: 48, fontFamily: 'Lato', fontWeight: '900', lineHeight: 56, wordWrap: 'break-word'}}>+1200</div>
+        <div className="Doctors" style={{width: 150, height: 49, left: 144, top: 54, position: 'absolute', color: 'rgba(0, 0, 0, 0.87)', fontSize: 36, fontFamily: 'Lato', fontWeight: '700', lineHeight: 56, wordWrap: 'break-word'}}>Doctors</div>
+      </div>
+      <div className="MaecenasNislLibero" style={{width: 349, height: 54, left: 0, top: 111, position: 'absolute', textAlign: 'center', color: 'rgba(0, 0, 0, 0.87)', fontSize: 18, fontFamily: 'Lato', fontWeight: '400', lineHeight: 27, wordWrap: 'break-word'}}>Maecenas nisl libero, tincidunt id odio id, feugiat vulputate quam. </div>
+    </div>
+  </div>
+  <div className="Counter" style={{width: 349, height: 193, left: 389, top: 17, position: 'absolute'}}>
+    <div className="Counter" style={{width: 156, height: 93, left: 155, top: 0, position: 'absolute'}}>
+      <div className="200" style={{width: 156, height: 53, left: 0, top: 0, position: 'absolute', color: '#357A38', fontSize: 48, fontFamily: 'Lato', fontWeight: '900', lineHeight: 56, wordWrap: 'break-word'}}>+1200</div>
+      <div className="Clinics" style={{width: 150, height: 46, left: 0, top: 47, position: 'absolute', color: 'rgba(0, 0, 0, 0.87)', fontSize: 36, fontFamily: 'Lato', fontWeight: '700', lineHeight: 56, wordWrap: 'break-word'}}>Clinics</div>
+    </div>
+    <div className="MaecenasNislLibero" style={{width: 349, height: 88, left: 0, top: 105, position: 'absolute', textAlign: 'center', color: 'rgba(0, 0, 0, 0.87)', fontSize: 18, fontFamily: 'Lato', fontWeight: '400', lineHeight: 27, wordWrap: 'break-word'}}>Maecenas nisl libero, tincidunt id odio id, feugiat vulputate quam. </div>
+    <div className="Group" style={{width: 84, height: 84, left: 55, top: 9, position: 'absolute'}}>
+    <img className="Shape" style={{width: 115, height: 73.99, left: 0, top: 0, position: 'absolute'}} src="../../public/clinic.svg" />
+    </div>
+  </div>
+  <div className="Counter" style={{width: 349, height: 193, left: 778, top: 17, position: 'absolute'}}>
+    <div className="Counter" style={{width: 158, height: 93, left: 160, top: 0, position: 'absolute'}}>
+      <div className="100" style={{width: 122, height: 56, left: 0, top: 0, position: 'absolute', color: '#357A38', fontSize: 48, fontFamily: 'Lato', fontWeight: '900', lineHeight: 56, wordWrap: 'break-word'}}>+100</div>
+      <div className="Specialist" style={{width: 158, height: 46, left: 0, top: 47, position: 'absolute', color: 'rgba(0, 0, 0, 0.87)', fontSize: 36, fontFamily: 'Lato', fontWeight: '700', lineHeight: 56, wordWrap: 'break-word'}}>Specialist</div>
+    </div>
+    <div className="MaecenasNislLibero" style={{width: 349, height: 88, left: 0, top: 105, position: 'absolute', textAlign: 'center', color: 'rgba(0, 0, 0, 0.87)', fontSize: 18, fontFamily: 'Lato', fontWeight: '400', lineHeight: 27, wordWrap: 'break-word'}}>Maecenas nisl libero, tincidunt id odio id, feugiat vulputate quam. </div>
+    <div className="Group" style={{width: 81, height: 75, left: 59, top: 18, position: 'absolute'}}>
+    <img className="Shape" style={{width: 115, height: 73.99, left: 0, top: 0, position: 'absolute'}} src="../../public/specialist.svg" />
+    </div>
+  </div>
+</div>
+    </div>
+    </div>
     </div>
   );
 }
