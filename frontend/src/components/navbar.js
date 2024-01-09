@@ -25,8 +25,8 @@ export default function NavBar({ user, login, logout}) {
     logout()
   };
   return (
-    <div style={{marginBottom: '20vh'}}>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div style={{marginBottom: '10vh'}}>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link to="/doctors" className="navbar-brand d-flex align-items-center">
         <img src="../logo.png"  width="" height="40" className="d-inline-block align-top mr-2" />
         HealthConnect
@@ -59,16 +59,16 @@ export default function NavBar({ user, login, logout}) {
       </div>
     </nav>
     <div>
-    <div className="container text-center" style={{marginTop: '10vh'}}>
+    <div className="container text-center" style={{marginTop: '5vh'}}>
   <div className="row">
-    <div className="col">
-      <h1>Doctor Lookup</h1>
-      <p>Find the best doctors in your area</p>
+    <div className="col" style={{paddingTop:'10vh'}}>
+      <h1>HealthConnect</h1>
+      <p>Explore top-notch healthcare by finding the best doctors in your area effortlessly. Our platform streamlines your search, connecting you with qualified medical professionals tailored to your needs. Elevate your healthcare experience with ease</p>
       <div
         className="SizeSTypeSecondaryStateHoverIconLeftOffIconRightOnBackgroundLightIconOnlyOff"
         style={{
           width: '30vw',
-          height: '20vh',
+          height: '5vh',
           paddingLeft: 16,
           paddingRight: 16,
           paddingTop: 8,
@@ -89,8 +89,8 @@ export default function NavBar({ user, login, logout}) {
           style={{
             textAlign: 'right',
             color: 'white',
-            fontSize: '4rem',
-            fontFamily: 'Poppins',
+            fontSize: '2rem',
+            fontFamily: 'poppins',
             fontWeight: '600',
             letterSpacing: 0.20,
             wordWrap: 'break-word',
@@ -106,17 +106,6 @@ export default function NavBar({ user, login, logout}) {
             position: 'relative',
           }}
         >
-          <div
-            className="Vector"
-            style={{
-              width: 4,
-              height: 8,
-              left: 6,
-              top: 4,
-              position: 'absolute',
-              border: '2px white solid',
-            }}
-          ></div>
         </div>
     </div>
           </div>
