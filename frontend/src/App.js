@@ -7,6 +7,8 @@ import http from './http-common.js';
 import DoctorDataService from "./services/doctor.js";
 import NavBar from "./components/navbar"
 import httpCommon from './http-common.js';
+import AppRouter from './AppRouter.js';
+
 
 const UserContext = React.createContext(null);
 function App()
@@ -72,8 +74,8 @@ function App()
     return(
       
         <div>
+            <AppRouter />
             <NavBar user={user} login={login} logout={logout} />
-      
             <FormBar user={user}
             />
             {/* //<Map /> */}
