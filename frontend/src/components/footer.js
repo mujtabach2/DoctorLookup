@@ -1,4 +1,6 @@
-
+import React from 'react';
+import githubIcon from './github.svg';
+import linkedinIcon from './linkedin.svg';
 
 function footer () {
     return (
