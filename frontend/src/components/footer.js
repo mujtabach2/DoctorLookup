@@ -1,6 +1,7 @@
 import React from 'react';
 import githubIcon from './github.svg';
 import linkedinIcon from './linkedin.svg';
+import logo from '../logo.svg';
 
 function Footer () {
     return (
@@ -8,7 +9,7 @@ function Footer () {
           <footer className="footer" style={{ zIndex: '0', position: 'absolute', bottom: '0', left: '0', right: '0', backgroundColor: '#f8f9fa', padding: '2rem 0', textAlign: 'center' }}>
             <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <img src='../logo' alt="Logo" style={{ height: '3vh', marginRight: '10px' }} />
+                <img src={logo} alt="Logo" style={{ height: '3vh', marginRight: '10px' }} />
                 <p style={{ margin: '0', color: '#707070' }}>
                   &copy; 2023 HealthConnect. All rights reserved.
                 </p>
