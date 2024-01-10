@@ -59,18 +59,17 @@ export default function NavBar({ user, login, logout}) {
       </div>
     </nav>
     <div>
-    <div className="container text-center" style={{marginTop: '5vh'}}>
+    <div className="container text-left" style={{marginTop: '5vh'}}>
   <div className="row">
     <div className="col" style={{paddingTop:'10vh'}}>
-      <h1>HealthConnect</h1>
-      <p>Explore top-notch healthcare by finding the best doctors in your area effortlessly. Our platform streamlines your search, connecting you with qualified medical professionals tailored to your needs. Elevate your healthcare experience with ease</p>
+      <h1 className="turbocharge">HealthConnect</h1>
+      <p>Explore top-notch healthcare by finding the best doctors in your area effortlessly. Our platform streamlines your search, connecting you with qualified medical professionals tailored to your needs.</p>
       <div
         className="SizeSTypeSecondaryStateHoverIconLeftOffIconRightOnBackgroundLightIconOnlyOff"
         style={{
-          width: '30vw',
           height: '5vh',
           paddingLeft: 16,
-          paddingRight: 16,
+          paddingRight: '1vw',
           paddingTop: 8,
           paddingBottom: 8,
           background: 'linear-gradient(91deg, #18A1CC 0%, #92D1FF 100%)',

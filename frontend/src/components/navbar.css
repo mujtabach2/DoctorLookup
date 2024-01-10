@@ -47,3 +47,20 @@
 .login-link:hover {
   color: #0056b3;
 }
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.turbocharge {
+  color: #18A1CC;
+  animation: slideIn 1s ease-in-out;
+  display: inline-block; /* Prevents the word from breaking into two lines */
+}
