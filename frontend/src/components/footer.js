@@ -1,7 +1,7 @@
 import React from 'react';
 import githubIcon from './github.svg';
 import linkedinIcon from './linkedin.svg';
-import logo from '../logo.svg';
+import logo from '../logo.png';
 
 function Footer () {
     return (
