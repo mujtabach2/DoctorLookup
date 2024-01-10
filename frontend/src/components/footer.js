@@ -10,7 +10,7 @@ function Footer () {
             <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <img src={logo} alt="Logo" style={{ height: '5vh' }} />
-                <h4 style={{ size: '1.5rem',marginRight: '1vh', color: 'black' }}>HealthConnect      </h4>
+                <h4 style={{ marginleft: '-1vh', size: '1.5rem',marginRight: '1vh', color: 'black' }}>HealthConnect      </h4>
                 <p style={{ margin: '0', color: '#707070' }}>
                   &copy; 2023 HealthConnect. All rights reserved.
                 </p>

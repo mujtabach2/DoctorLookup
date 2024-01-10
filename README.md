@@ -1,7 +1,7 @@
 # Doctor Lookup
 
 <p align="center">
-  <img src="frontend/public/logo.png" alt="Doctor Lookup Logo">
+  <img src="frontend/public/homepage.png" alt="Doctor Lookup Logo">
 </p>
 
 <h1>Doctor Lookup</h1>
