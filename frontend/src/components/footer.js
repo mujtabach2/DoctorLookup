@@ -2,7 +2,7 @@ import React from 'react';
 import githubIcon from './github.svg';
 import linkedinIcon from './linkedin.svg';
 
-function footer () {
+function Footer () {
     return (
         <div style={{ marginTop: '30vh',position: 'relative', zIndex: 1 }}>
           <footer className="footer" style={{ zIndex: '0', position: 'absolute', bottom: '0', left: '0', right: '0', backgroundColor: '#f8f9fa', padding: '2rem 0', textAlign: 'center' }}>
@@ -26,3 +26,5 @@ function footer () {
           </div>
     );
 }
+
+export default Footer;
