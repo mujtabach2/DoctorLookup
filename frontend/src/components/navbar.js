@@ -17,11 +17,18 @@ export default function NavBar({ user, login, logout}) {
   const handleButtonClick = () => {
     // Scroll down by 50vh
     window.scrollTo({
-      top: window.innerHeight * 0.5,
+      top: window.innerHeight * 0.8,
       behavior: 'smooth', // You can change this to 'auto' for instant scroll
     });
   };
    
+  const handleTestButtonClick = () => {
+    // Scroll down by 50vh
+    window.scrollTo({
+      top: window.innerHeight * 0.5,
+      behavior: 'smooth', // You can change this to 'auto' for instant scroll
+    });
+  };
     
   const handleLogout = () => {
     logout()
@@ -46,9 +53,19 @@ export default function NavBar({ user, login, logout}) {
             </button>
             <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
               <ul className="navbar-nav ml-auto">
+                <li className="nav-item" >
+                  <button className="nav-link login-link" style={{marginRight: "10px", color: "black"}} onClick={handleButtonClick}>
+                    Search Now
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button className="nav-link login-link" style={{marginRight: "10px", color: "black"}} onClick={ handleTestButtonClick}>
+                    Testimonials
+                  </button>
+                </li>
                 <li className="nav-item">
                   {user ? (
-                    <button onClick={handleLogout} className="nav-link login-link">
+                    <button onClick={handleLogout} className="nav-link login-link" style={{marginRight: "10px", color: "black"}}>
                       {user.name.split(" ")[0]}, Logout
                     </button>
                   ) : (

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import siteUserPfp from './siteUserPfp.jpeg'
 import doctorTestPfp from './doctorTestPfp.jpeg'
-import userPfp from './userPfp.png'
+import userPfp from './userpfp.png'
 
 const Testimonials = () => {
 
