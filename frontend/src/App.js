@@ -8,6 +8,7 @@ import DoctorDataService from "./services/doctor.js";
 import NavBar from "./components/navbar"
 import httpCommon from './http-common.js';
 import AppRouter from './AppRouter.js';
+import footer from './components/footer.js';
 
 
 const UserContext = React.createContext(null);
@@ -78,6 +79,7 @@ function App()
             <FormBar user={user}
             />
             {/* //<Map /> */}
+            <Footer />
         </div>
        
     );

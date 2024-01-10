@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import homepagePic from './homepage1.png';
 
 import counters from './Counters.png';
+import './navbar.css';
 
 
 export default function NavBar({ user, login, logout}) {
@@ -89,7 +90,7 @@ export default function NavBar({ user, login, logout}) {
             textAlign: 'right',
             color: 'white',
             fontSize: '2rem',
-            fontFamily: 'poppins',
+            fontFamily: 'lato',
             fontWeight: '600',
             letterSpacing: 0.20,
             wordWrap: 'break-word',
@@ -108,7 +109,7 @@ export default function NavBar({ user, login, logout}) {
         </div>
     </div>
           </div>
-          <div className="col">
+          <div className="col" style={{marginLeft:'3vw'}}>
             <div className="Object" style={{width: 487.12, height: 612.71, position: 'relative'}}>
                 <img src={homepagePic} style={{width: 487.12, height: 612.71, left: 0, top: 0, position: 'absolute'}} />
             </div>
