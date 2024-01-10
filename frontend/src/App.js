@@ -8,7 +8,7 @@ import DoctorDataService from "./services/doctor.js";
 import NavBar from "./components/navbar"
 import httpCommon from './http-common.js';
 import AppRouter from './AppRouter.js';
-import footer from './components/footer.js';
+import Footer from './components/footer.js';
 
 
 
