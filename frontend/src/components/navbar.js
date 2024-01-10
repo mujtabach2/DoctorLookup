@@ -143,8 +143,11 @@ export default function NavBar({ user, login, logout}) {
           </div>
 
           <div className="container" style={{marginTop: '12vh'}}>
-            <h2 className="text-center" style={{marginTop: '10vh', marginBottom: '5vh'}}>Testimonials</h2>
-            <Testimonials />
+            <h2 className="text-center" style={{marginTop: '10vh', marginBottom: '5vh', size: "2rem", color: "#92D1FF"}}>Testimonials</h2>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <Testimonials />
+            </div>
+           
           </div>
     </div>
   );
