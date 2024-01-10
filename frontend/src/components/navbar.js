@@ -7,6 +7,7 @@ import homepagePic from './homepage1.png';
 
 import counters from './Counters.png';
 import './navbar.css';
+import Testimonials from "./Testimonials";
 
 
 export default function NavBar({ user, login, logout}) {
@@ -122,6 +123,11 @@ export default function NavBar({ user, login, logout}) {
           <div className="Counters" style={{width: 1127, height: 210, position: 'relative'}}>
               <img src={counters}/>
           </div>
+          </div>
+
+          <div className="container" style={{marginTop: '12vh'}}>
+            <h2 className="text-center" style={{marginTop: '10vh', marginBottom: '5vh'}}>Testimonials</h2>
+            <Testimonials />
           </div>
     </div>
   );
