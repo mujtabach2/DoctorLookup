@@ -462,7 +462,7 @@ const renderDoctorReviews = (doctor) => {
         </div>
         {/* ... (previous code) ... */}
         <div className="col-md-6">
-        <div className="row" style={{ marginLeft: "10px", width: "95%", backgroundColor: 'lightgray', padding: '10px', marginBottom: '5px', borderRadius:" 70px", alignItems: 'center',justifyContent:"center" }}>
+        <div className="row" style={{ marginLeft: "10px", width: "95%",  background: 'linear-gradient(91deg, #141E30 0%, #243B55 100%)', padding: '10px', marginBottom: '5px', borderRadius:" 70px", alignItems: 'center',justifyContent:"center" }}>
           <div className="col-md-2">
             <label htmlFor="filterDropdown" className="form-label">
               <strong>Filter By:</strong>
@@ -565,7 +565,7 @@ const renderDoctorReviews = (doctor) => {
               ) : (
                 // Show a login popup when the user is not logged in and tries to add a review
                 <a href="https://doctorlook.onrender.com/api/v1/doctors/login">
-                  <button className="btn btn-primary" href>
+                  <button className="btn btn-primary" style={{background: 'linear-gradient(91deg, #18A1CC 0%, #92D1FF 100%)'}} href>
                     Add Review (Log in required)
                   </button>
                 </a>
