@@ -15,7 +15,7 @@ export default function NavBar({ user, login, logout}) {
 
   const handleTestButtonClick = () => {
     window.scrollTo({
-      top: document.body.scrollHeight * 0.5,
+      top: document.body.scrollHeight * 0.4,
       behavior: 'smooth', // You can change this to 'auto' for instant scroll
     });
   };
@@ -131,14 +131,14 @@ export default function NavBar({ user, login, logout}) {
                   className="SizeSTypeSecondaryStateHoverIconLeftOffIconRightOnBackgroundLightIconOnlyOff"
                   style={{
                     height: '5vh',
-                    paddingLeft: 16,
+                    paddingLeft: "6vw",
                     paddingRight: '1vw',
-                    paddingTop: 8,
-                    paddingBottom: 8,
+                    paddingTop: "2vw",
+                    paddingBottom: "2vw",
                     background: 'linear-gradient(91deg, #18A1CC 0%, #92D1FF 100%)',
                     boxShadow: '0px 3px 10px rgba(32, 132, 217, 0.50)',
                     borderRadius: 8,
-                    justifyContent: 'flex-start',
+                    justifyContent: 'center',
                     alignItems: 'flex-start',
                     gap: 8,
                     display: 'inline-flex',
@@ -150,15 +150,12 @@ export default function NavBar({ user, login, logout}) {
                       className="Text"
                       style={{
                         display: 'flex',
-                        alignItems: 'center',
-                        textAlign: 'right',
                         color: 'white',
                         fontSize: '1.5rem',
                         fontFamily: 'Arial',
                         fontWeight: '600',
                         whiteSpace: 'nowrap',
-                        paddingBottom: 3,
-                        paddingTop: 3,
+        
                       }}
                     >
                       Search Now
