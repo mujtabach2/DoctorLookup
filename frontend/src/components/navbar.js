@@ -131,8 +131,8 @@ export default function NavBar({ user, login, logout}) {
                   className="SizeSTypeSecondaryStateHoverIconLeftOffIconRightOnBackgroundLightIconOnlyOff"
                   style={{
                     height: '5vh',
-                    paddingLeft: "6vw",
-                    paddingRight: '1vw',
+                    paddingLeft: "1vw",
+                    paddingRight: '6vw',
                     paddingTop: "2vw",
                     paddingBottom: "2vw",
                     background: 'linear-gradient(91deg, #18A1CC 0%, #92D1FF 100%)',
@@ -150,6 +150,7 @@ export default function NavBar({ user, login, logout}) {
                       className="Text"
                       style={{
                         display: 'flex',
+                        alignItems: 'right',
                         color: 'white',
                         fontSize: '1.5rem',
                         fontFamily: 'Arial',
