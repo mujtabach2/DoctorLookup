@@ -48,13 +48,20 @@ const Testimonials = () => {
             <div className="Group9" style={{ width: 950, height: 680, position: 'relative', textAlign: 'center' }}>
                 <div className="Rectangle2" style={{ width: 900, height: 620, left: 0, top: 0, position: 'absolute', background: 'linear-gradient(142deg, rgba(253.51, 247.56, 255, 0.21) 0%, rgba(253.51, 247.56, 255, 0) 100%)', borderRadius: 46.92, border: '19px white solid', backdropFilter: 'blur(151.39px)' }} />
                 <img className="Rectangle" style={{ width: 870, height: 620, left: 0, top: 0, position: 'absolute', borderRadius: 50 }} src={Rectangle} />
-                <div className="Content" style={{ width: 520, paddingTop: '8vh', paddingLeft: '16vw', position: 'absolute', textAlign: 'center', color: 'black', fontSize: 15, fontFamily: 'Prompt', fontStyle: 'italic', fontWeight: '400', lineHeight: 3, letterSpacing: 0.60, wordWrap: 'break-word' }}>{currentTestimonial.content}</div>
-                <div className='column' style={{ width: 84, height: 89, left: 393, top: 378, position: 'absolute', textAlign: "center" }}>
-                     <img className="Ellipse9" style={{ width: 80, height: 80, top: 0, position: 'absolute', borderRadius: 9999, border: '3px #FFA800 solid' }} src={currentTestimonial.image} />
-                     <div className="Name" style={{ textAlign: 'center', color: '#E0E0E0', fontSize: 13, fontFamily: 'Prompt', fontWeight: '500', textTransform: 'uppercase', letterSpacing: 0.95, wordWrap: 'break-word' }}>{currentTestimonial.name}</div>
-                    <div className="Role" style={{  textAlign: 'center', color: '#B6BCCC', fontSize: 10, fontFamily: 'Prompt', fontWeight: '300',  }}>{currentTestimonial.role}</div>
+                 <div className='column' style={{ width: 84, height: 89, left: 393, top: 378, position: 'absolute', textAlign: 'center' }}>
+                 <div className="Content" style={{ textAlign: 'center', color: 'black', fontSize: 15, fontFamily: 'arial', fontStyle: 'italic', fontWeight: '400', lineHeight: 3, letterSpacing: 0.60, wordWrap: 'break-word', margin: '10px 0' }}>
+                        {currentTestimonial.content}
+                    </div>
+                    <img className="Ellipse9" style={{ width: 80, height: 80, top: 0, position: 'absolute', borderRadius: 9999, border: '3px #FFA800 solid' }} src={currentTestimonial.image} />
+                    <div className="Name" style={{ textAlign: 'center', color: '#E0E0E0', fontSize: 13, fontFamily: 'arial', fontWeight: '500', textTransform: 'uppercase', letterSpacing: 0.95, wordWrap: 'break-word', margin: '10px 0' }}>
+                        {currentTestimonial.name}
+                    </div>
+                    <div className="Role" style={{ textAlign: 'center', color: '#B6BCCC', fontSize: 10, fontFamily: 'arial', fontWeight: '300', margin: '5px 0' }}>
+                        {currentTestimonial.role}
+                    </div>
                 </div>
-                <div style={{ width: 51, height: 38, left: 120, top: 121, position: 'absolute', }}>
+
+                <div style={{ width: 51, height: 38, left: 128, top: 121, position: 'absolute', }}>
                     <img src={epllipse} />
                 </div>
                 
@@ -65,7 +72,7 @@ const Testimonials = () => {
                 </div>
                 <div className="Group8" style={{ width: 40, height: 14, left: 140, top: 410, position: 'absolute' }}>
                     <button onClick={handleForwardClick} style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer' }}>
-                        <img src={right} style={{ height: 20 }} alt="Right Arrow" />
+                        <img src={right} style={{ height: 30 }} alt="Right Arrow" />
                     </button>
                 </div>
 
