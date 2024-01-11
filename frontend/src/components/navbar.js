@@ -17,7 +17,7 @@ export default function NavBar({ user, login, logout}) {
   const handleButtonClick = () => {
     // Scroll down by 50vh
     window.scrollTo({
-      top: window.innerHeight * 0.95,
+      top: window.innerHeight,
       behavior: 'smooth', // You can change this to 'auto' for instant scroll
     });
   };
@@ -25,7 +25,7 @@ export default function NavBar({ user, login, logout}) {
   const handleTestButtonClick = () => {
     // Scroll down by 50vh
     window.scrollTo({
-      top: window.innerHeight * 0.5,
+      top: window.innerHeight * 0.95,
       behavior: 'smooth', // You can change this to 'auto' for instant scroll
     });
   };
