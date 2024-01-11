@@ -15,7 +15,7 @@ export default function NavBar({ user, login, logout}) {
 
   const handleTestButtonClick = () => {
     window.scrollTo({
-      top: document.body.scrollHeight * 0.8,
+      top: document.body.scrollHeight * 0.5,
       behavior: 'smooth', // You can change this to 'auto' for instant scroll
     });
   };
@@ -153,10 +153,12 @@ export default function NavBar({ user, login, logout}) {
                         alignItems: 'center',
                         textAlign: 'right',
                         color: 'white',
-                        fontSize: '2rem',
+                        fontSize: '1.5rem',
                         fontFamily: 'Arial',
                         fontWeight: '600',
                         whiteSpace: 'nowrap',
+                        paddingBottom: 3,
+                        paddingTop: 3,
                       }}
                     >
                       Search Now
