@@ -48,16 +48,18 @@ const Testimonials = () => {
             <div className="Group9" style={{ width: 950, height: 680, position: 'relative', textAlign: 'center' }}>
                 <div className="Rectangle2" style={{ width: 900, height: 620, left: 0, top: 0, position: 'absolute', background: 'linear-gradient(142deg, rgba(253.51, 247.56, 255, 0.21) 0%, rgba(253.51, 247.56, 255, 0) 100%)', borderRadius: 46.92, border: '19px white solid', backdropFilter: 'blur(151.39px)' }} />
                 <img className="Rectangle" style={{ width: 870, height: 620, left: 0, top: 0, position: 'absolute', borderRadius: 50 }} src={Rectangle} />
-                 <div className='column' style={{ width: 84, height: 89, left: 393, top: 378, position: 'absolute', textAlign: 'center' }}>
-                 <div className="Content" style={{ textAlign: 'center', color: 'black', fontSize: 15, fontFamily: 'arial', fontStyle: 'italic', fontWeight: '400', lineHeight: 3, letterSpacing: 0.60, wordWrap: 'break-word', margin: '10px 0' }}>
+                <div className="column" style={{ width: 84, height: 89, left: 240, top: 180, position: 'absolute', textAlign: 'center' }}>
+                 <div className="Content" style={{ width: 500, textAlign: 'center', color: 'black', fontSize: 15, fontFamily: 'arial', fontStyle: 'italic', fontWeight: 400, lineHeight: 2, letterSpacing: 0.6, overflowWrap: 'break-word' }}>
                         {currentTestimonial.content}
                     </div>
-                    <img className="Ellipse9" style={{ width: 80, height: 80, top: 0, position: 'absolute', borderRadius: 9999, border: '3px #FFA800 solid' }} src={currentTestimonial.image} />
-                    <div className="Name" style={{ textAlign: 'center', color: '#E0E0E0', fontSize: 13, fontFamily: 'arial', fontWeight: '500', textTransform: 'uppercase', letterSpacing: 0.95, wordWrap: 'break-word', margin: '10px 0' }}>
-                        {currentTestimonial.name}
-                    </div>
-                    <div className="Role" style={{ textAlign: 'center', color: '#B6BCCC', fontSize: 10, fontFamily: 'arial', fontWeight: '300', margin: '5px 0' }}>
-                        {currentTestimonial.role}
+                    <div style={{marginLeft: 200, textAlign: 'center', marginTop: 20 }}>
+                        <img className="Ellipse9" style={{ width: 80, height: 80, borderRadius: '9999px', border: '3px solid rgb(255, 168, 0)', marginBottom: 10 }} src={currentTestimonial.image} />
+                        <div className="Name" style={{ color: 'black', fontSize: 13, fontFamily: 'arial', fontWeight: 500, textTransform: 'uppercase', whiteSpace: 'nowrap', marginBottom: 5 }}>
+                            {currentTestimonial.name}
+                        </div>
+                        <div className="Role" style={{ color: 'gray', fontSize: 10, fontFamily: 'arial', fontWeight: 300 }}>
+                            {currentTestimonial.role}
+                        </div>
                     </div>
                 </div>
 
