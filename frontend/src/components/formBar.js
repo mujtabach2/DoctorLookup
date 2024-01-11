@@ -62,6 +62,7 @@ export default function FormBar({user}) {
 
   return (
     <div className="container">
+    <h1 className="text-center" style={{color: '#18A1CC'}}>Find a Doctor</h1>
     <div className="container oval-container">
       <form onSubmit={handleSubmit}>
         <div className="row mb-3">

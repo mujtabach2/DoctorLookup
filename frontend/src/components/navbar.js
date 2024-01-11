@@ -17,7 +17,7 @@ export default function NavBar({ user, login, logout}) {
   const handleButtonClick = () => {
     // Scroll down by 50vh
     window.scrollTo({
-      top: window.innerHeight * 0.8,
+      top: window.innerHeight * 0.95,
       behavior: 'smooth', // You can change this to 'auto' for instant scroll
     });
   };
@@ -34,7 +34,7 @@ export default function NavBar({ user, login, logout}) {
     logout()
   };
   return (
-    <div style={{marginBottom: '10vh'}}>
+    <div style={{marginBottom: '18vh'}}>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to="/doctors" className="navbar-brand d-flex align-items-center">
               <img src="../logo.png"  width="" height="40" className="d-inline-block align-top mr-2" />
