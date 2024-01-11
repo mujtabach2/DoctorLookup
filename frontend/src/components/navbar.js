@@ -110,7 +110,6 @@ export default function NavBar({ user, login, logout}) {
                           color: "black",
                           cursor: "pointer",
                           transition: "color 0.3s",
-                          borderBottom: hoveredButton === 'login' ? '2px solid #18A1CC' : 'none',
                         }}
                         onMouseEnter={(e) => e.target.style.color = "#18A1CC"}
                         onMouseLeave={(e) => e.target.style.color = "black"}
