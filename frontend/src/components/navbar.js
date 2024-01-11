@@ -12,20 +12,21 @@ import Testimonials from "./Testimonials";
 
 export default function NavBar({ user, login, logout}) {
    
-  const navigate = useNavigate();
+  const testimonialsRef = useRef();
+
+  const handleTestButtonClick = () => {
+    if (testimonialsRef.current) {
+      testimonialsRef.current.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  };
   
+   
   const handleButtonClick = () => {
     // Scroll down by 50vh
     window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth', // You can change this to 'auto' for instant scroll
-    });
-  };
-   
-  const handleTestButtonClick = () => {
-    // Scroll down by 50vh
-    window.scrollTo({
-      top: window.innerHeight * 0.95,
+      top: document.body.scrollHeight,
       behavior: 'smooth', // You can change this to 'auto' for instant scroll
     });
   };
@@ -150,13 +151,14 @@ export default function NavBar({ user, login, logout}) {
                     <div
                       className="Text"
                       style={{
+                        display: 'flex',
+                        alignItems: 'center',
                         textAlign: 'right',
                         color: 'white',
                         fontSize: '2rem',
                         fontFamily: 'Arial',
                         fontWeight: '600',
-                        letterSpacing: 0.20,
-                        wordWrap: 'break-word',
+                        whiteSpace: 'nowrap',
                       }}
                     >
                       Search Now
@@ -190,7 +192,7 @@ export default function NavBar({ user, login, logout}) {
           <div className="container" style={{marginTop: '12vh'}}>
             <h2 className="text-center" style={{marginTop: '10vh', marginBottom: '3vh', size: "4.5rem", color: "#18A1CC"}}>Testimonials</h2>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Testimonials />
+              <Testimonials ref={testimonialsRef} />
             </div>
            
           </div>
