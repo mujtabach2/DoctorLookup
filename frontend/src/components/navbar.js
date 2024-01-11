@@ -32,6 +32,23 @@ export default function NavBar({ user, login, logout}) {
   const handleLogout = () => {
     logout()
   };
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  
+  const boxShadowStyle = isHovered
+  ? '0px 3px 10px rgba(32, 132, 217, 0.50)'
+  : 'none';
+
+
+
   return (
     <div style={{marginBottom: '18vh'}}>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -130,28 +147,27 @@ export default function NavBar({ user, login, logout}) {
                 <div
                   className="SizeSTypeSecondaryStateHoverIconLeftOffIconRightOnBackgroundLightIconOnlyOff"
                   style={{
-                    height: '5vh',
-                    paddingLeft: "1vw",
-                    paddingRight: '6vw',
-                    paddingTop: "2vw",
-                    paddingBottom: "2vw",
+                    height: '6vh',
+                    width: '20vw',
                     background: 'linear-gradient(91deg, #18A1CC 0%, #92D1FF 100%)',
-                    boxShadow: '0px 3px 10px rgba(32, 132, 217, 0.50)',
+                    boxShadow: boxShadowStyle,
                     borderRadius: 8,
                     justifyContent: 'center',
-                    alignItems: 'flex-start',
+                    alignItems: 'center',
                     gap: 8,
                     display: 'inline-flex',
                     cursor: 'pointer', // Add cursor style for better UX
                   }}
                   onClick={handleButtonClick}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
                     <div
                       className="Text"
                       style={{
                         display: 'flex',
-                        alignItems: 'right',
                         color: 'white',
+                        marginTop: '1vh',
                         fontSize: '1.5rem',
                         fontFamily: 'Arial',
                         fontWeight: '600',
