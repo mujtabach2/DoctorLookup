@@ -63,7 +63,7 @@ export default function NavBar({ user, login, logout}) {
                         transition: "color 0.3s",
                       }}
                       onClick={handleButtonClick}
-                      onMouseEnter={(e) => e.target.style.color = "blue"}
+                      onMouseEnter={(e) => e.target.style.color = "#18A1CC"}
                       onMouseLeave={(e) => e.target.style.color = "black"}
                     >
                       Search Now
@@ -79,7 +79,7 @@ export default function NavBar({ user, login, logout}) {
                         transition: "color 0.3s",
                       }}
                       onClick={handleTestButtonClick}
-                      onMouseEnter={(e) => e.target.style.color = "blue"}
+                      onMouseEnter={(e) => e.target.style.color = "#18A1CC"}
                       onMouseLeave={(e) => e.target.style.color = "black"}
                     >
                       Testimonials
@@ -188,7 +188,7 @@ export default function NavBar({ user, login, logout}) {
           </div>
 
           <div className="container" style={{marginTop: '12vh'}}>
-            <h2 className="text-center" style={{marginTop: '10vh', marginBottom: '5vh', size: "3rem", color: "#18A1CC"}}>Testimonials</h2>
+            <h2 className="text-center" style={{marginTop: '10vh', marginBottom: '5vh', size: "4rem", color: "#18A1CC"}}>Testimonials</h2>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <Testimonials />
             </div>
