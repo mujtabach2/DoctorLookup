@@ -79,7 +79,7 @@ export default function NavBar({ user, login, logout}) {
                         transition: "color 0.3s",
                       }}
                       onClick={handleTestButtonClick}
-                      onMouseEnter={(e) => e.target.style.color = "#18A1CC"}
+                      onMouseEnter={(e) => e.target.style.color = "#18A1CC"} 
                       onMouseLeave={(e) => e.target.style.color = "black"}
                     >
                       Testimonials
