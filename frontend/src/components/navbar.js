@@ -52,30 +52,75 @@ export default function NavBar({ user, login, logout}) {
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item" >
-                  <button className="nav-link login-link" style={{marginRight: "10px", color: "black"}} onClick={handleButtonClick}>
-                    Search Now
-                  </button>
-                </li>
-                <li className="nav-item">
-                  <button className="nav-link login-link" style={{marginRight: "10px", color: "black"}} onClick={ handleTestButtonClick}>
-                    Testimonials
-                  </button>
-                </li>
-                <li className="nav-item">
-                  {user ? (
-                    <button onClick={handleLogout} className="nav-link login-link" style={{marginRight: "10px", color: "black"}}>
-                      {user.name.split(" ")[0]}, Logout
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <button
+                      className="nav-link login-link"
+                      style={{
+                        marginRight: "10px",
+                        color: "black",
+                        cursor: "pointer",
+                        transition: "color 0.3s",
+                      }}
+                      onClick={handleButtonClick}
+                      onMouseEnter={(e) => e.target.style.color = "blue"}
+                      onMouseLeave={(e) => e.target.style.color = "black"}
+                    >
+                      Search Now
                     </button>
-                  ) : (
-                    <button onClick={login} className="nav-link login-link" style={{marginRight: "10px", color: "black"}}>
-                      Login
+                  </li>
+                  <li className="nav-item">
+                    <button
+                      className="nav-link login-link"
+                      style={{
+                        marginRight: "10px",
+                        color: "black",
+                        cursor: "pointer",
+                        transition: "color 0.3s",
+                      }}
+                      onClick={handleTestButtonClick}
+                      onMouseEnter={(e) => e.target.style.color = "blue"}
+                      onMouseLeave={(e) => e.target.style.color = "black"}
+                    >
+                      Testimonials
                     </button>
-                  )}
-                </li>
-              </ul>
-            </div>
+                  </li>
+                  <li className="nav-item">
+                    {user ? (
+                      <button
+                        onClick={handleLogout}
+                        className="nav-link login-link"
+                        style={{
+                          marginRight: "10px",
+                          color: "black",
+                          cursor: "pointer",
+                          transition: "color 0.3s",
+                        }}
+                        onMouseEnter={(e) => e.target.style.color = "blue"}
+                        onMouseLeave={(e) => e.target.style.color = "black"}
+                      >
+                        {user.name.split(" ")[0]}, Logout
+                      </button>
+                    ) : (
+                      <button
+                        onClick={login}
+                        className="nav-link login-link"
+                        style={{
+                          marginRight: "10px",
+                          color: "black",
+                          cursor: "pointer",
+                          transition: "color 0.3s",
+                        }}
+                        onMouseEnter={(e) => e.target.style.color = "blue"}
+                        onMouseLeave={(e) => e.target.style.color = "black"}
+                      >
+                        Login
+                      </button>
+                    )}
+                  </li>
+                </ul>
+              </div>
+
           </nav>
           <div>
           <div className="container text-left" style={{marginTop: '5vh'}}>
@@ -143,7 +188,7 @@ export default function NavBar({ user, login, logout}) {
           </div>
 
           <div className="container" style={{marginTop: '12vh'}}>
-            <h2 className="text-center" style={{marginTop: '10vh', marginBottom: '5vh', size: "2rem", color: "#92D1FF"}}>Testimonials</h2>
+            <h2 className="text-center" style={{marginTop: '10vh', marginBottom: '5vh', size: "3rem", color: "#18A1CC"}}>Testimonials</h2>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <Testimonials />
             </div>
