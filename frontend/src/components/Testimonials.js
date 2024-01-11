@@ -52,12 +52,12 @@ const Testimonials = () => {
                  <div className="Content" style={{ width: 500, textAlign: 'center', color: 'black', fontSize: 15, fontFamily: 'arial', fontStyle: 'italic', fontWeight: 400, lineHeight: 2, letterSpacing: 0.6, overflowWrap: 'break-word' }}>
                         {currentTestimonial.content}
                     </div>
-                    <div style={{marginLeft: 180, display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 20 }}>
+                    <div style={{marginLeft: 240, display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 20 }}>
                         <img className="Ellipse9" style={{ width: 80, height: 80, borderRadius: '9999px', border: '3px solid rgb(255, 168, 0)', marginBottom: 10 }} src={currentTestimonial.image} />
                         <div className="Name" style={{ color: 'black', fontSize: 13, fontFamily: 'arial', fontWeight: 500, textTransform: 'uppercase', whiteSpace: 'nowrap', marginBottom: 5 }}>
                             {currentTestimonial.name}
                         </div>
-                        <div className="Role" style={{ color: 'gray', fontSize: 10, fontFamily: 'arial', fontWeight: 300 }}>
+                        <div className="Role" style={{ color: 'gray', fontSize: 10, fontFamily: 'arial', whiteSpace: 'nowrap', fontWeight: 300 }}>
                             {currentTestimonial.role}
                         </div>
                     </div>
@@ -70,7 +70,7 @@ const Testimonials = () => {
                 
                 <div className="Group7" style={{ width: 40, height: 14, left: 730, top: 410, position: 'absolute' }}>
                     <button onClick={handleReverseClick} style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer' }}>
-                        <img src={left} style={{ height: 20 }} alt="Left Arrow" />
+                        <img src={left} style={{ height: 30 }} alt="Left Arrow" />
                     </button>
                 </div>
                 <div className="Group8" style={{ width: 40, height: 14, left: 140, top: 410, position: 'absolute' }}>
