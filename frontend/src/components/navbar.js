@@ -12,14 +12,12 @@ import Testimonials from "./Testimonials";
 
 export default function NavBar({ user, login, logout}) {
    
-  const testimonialsRef = useRef();
 
   const handleTestButtonClick = () => {
-    if (testimonialsRef.current) {
-      testimonialsRef.current.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
+    window.scrollTo({
+      top: document.body.scrollHeight * 0.8,
+      behavior: 'smooth', // You can change this to 'auto' for instant scroll
+    });
   };
   
    
@@ -192,7 +190,7 @@ export default function NavBar({ user, login, logout}) {
           <div className="container" style={{marginTop: '12vh'}}>
             <h2 className="text-center" style={{marginTop: '10vh', marginBottom: '3vh', size: "4.5rem", color: "#18A1CC"}}>Testimonials</h2>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <Testimonials ref={testimonialsRef} />
+              <Testimonials />
             </div>
            
           </div>
